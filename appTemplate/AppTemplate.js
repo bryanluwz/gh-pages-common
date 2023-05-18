@@ -2,15 +2,15 @@ import { Component, Fragment } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import CookieConsent from 'react-cookie-consent';
 
-import './App.css';
-import './Main.css';
-import './components/others/ContentDisplay.css';
+import './AppTemplate.css';
+import '../others/ContentDisplay.css';
 
-import withRouter from './utils/withRouter';
+import withRouter from '../utils/withRouter';
 
-import { isCookie } from './utils/cookieMonster';
+import { isCookie } from '../utils/cookieMonster';
 
-import Main from '..main/Main';
+import '../../main/Main.css';
+import Main from '../../main/Main';
 
 class AppTemplate extends Component {
 	constructor(props) {
