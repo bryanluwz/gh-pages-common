@@ -1,14 +1,16 @@
 import { Component } from "react";
+import { Link } from "react-router-dom";
 
 export default class ContentDisplay extends Component {
 	render() {
 		return (
 			<div className="content-segment" style={this.props.style}>
 				<div className="content-header">
-					<i
-						className="content-header-side-button fa fa-angle-left"
-						ria-hidden="true"
-						onClick={() => { this.props.backButtonRoute ? this.props.router.navigate(this.props.backButtonRoute) : console.log("this buttons does nothing"); }} />
+					<Link to={this.props.backButtonRoute}>
+						<i
+							className="content-header-side-button fa fa-angle-left"
+							ria-hidden="true" />
+					</Link>
 					<div
 						className="content-header-title"
 						onClick={() => { this.props.handleHeaderTitleClick ? this.props.handleHeaderTitleClick() : console.log("this button does nothing"); }}>
