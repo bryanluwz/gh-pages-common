@@ -6,7 +6,7 @@ export default class ContentDisplay extends Component {
 		return (
 			<div className="content-segment" style={this.props.style}>
 				<div className="content-header">
-					<Link to={this.props.backButtonRoute}>
+					<Link to={this.props.backButtonRoute} className="content-header-side-button">
 						<i
 							className="content-header-side-button fa fa-angle-left"
 							ria-hidden="true" />
