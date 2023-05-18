@@ -1,3 +1,3 @@
-# gh-pages-common-src
+# gh-pages-common-component
 
-Common src files for github pages
+Common components files for github pages
