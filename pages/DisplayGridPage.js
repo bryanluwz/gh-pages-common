@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { Segment } from "../segment";
 import { GridTitleCard, GridTitleCardWrapper } from "../titleCards";
-import { getRouteLink } from "../utils/moduleLoadUtils";
+import Error404Page from "./error404";
 
 export default class DisplayGridPage extends Component {
 	constructor(props) {
@@ -27,25 +27,30 @@ export default class DisplayGridPage extends Component {
 	render() {
 		return (
 			<Segment>
-				<GridTitleCardWrapper
-					minElemSize={'140px'}
-					maxElemSize={'1fr'}
-				>
-					{Object.keys(this.props.dictionary)
-						.map((ModuleDisplayName, index) => {
-							var moduleInfo = this.props.dictionary[ModuleDisplayName];
-							var routeLink = getRouteLink(moduleInfo.routeLink, this.props.path);
-							return (
-								< GridTitleCard
-									key={index}
-									link={routeLink}
-									imgSrc={moduleInfo.icon}
-									title={moduleInfo.displayName}
-									backgroundColor={this.randomBgColor()}
-								/>
-							);
-						})}
-				</GridTitleCardWrapper>
+				{Object.keys(this.props.dictionary).length === 0 ?
+					<Error404Page customWarning="well this is awkward" />
+					:
+					<GridTitleCardWrapper
+						minElemSize={'140px'}
+						maxElemSize={'1fr'}
+					>
+						{
+							Object.keys(this.props.dictionary)
+								.map((ModuleDisplayName, index) => {
+									var moduleInfo = this.props.dictionary[ModuleDisplayName];
+									var routeLink = moduleInfo.routeLink;
+									return (
+										< GridTitleCard
+											key={index}
+											link={routeLink}
+											imgSrc={moduleInfo.icon}
+											title={moduleInfo.displayName}
+											backgroundColor={this.randomBgColor()}
+										/>
+									);
+								})
+						}
+					</GridTitleCardWrapper>}
 			</Segment>
 		);
 	}

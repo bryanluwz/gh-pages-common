@@ -42,7 +42,7 @@ export class GridTitleCard extends Component {
 						style={{
 							backgroundColor: this.props.backgroundColor
 						}}
-						src={this.props.imgSrc}
+						src={process.env.PUBLIC_URL + this.props.imgSrc}
 						alt="idk" />
 				</Link>
 				<Link

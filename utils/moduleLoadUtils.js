@@ -16,7 +16,7 @@ export function parseModule(modulesDefault, imagesArray) {
 		dict[moduleDefault.displayName] = {
 			name: moduleDefault.name,
 			displayName: moduleDefault.displayName,
-			icon: findIconForModule(moduleDefault.displayName.replaceAll(' ', '-'), imagesArray),
+			icon: process.env.PUBLIC_URL + findIconForModule(moduleDefault.displayName.replaceAll(' ', '-'), imagesArray),
 			routeLink: moduleDefault.displayName.toLowerCase().replace(/\s+/g, '-'),
 			moduleDefault: moduleDefault
 		};
