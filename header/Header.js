@@ -8,7 +8,7 @@ export default class Header extends Component {
 		return (
 			<div className="header-container">
 				<Link className="logo-container" to={"/"}>
-					<img className="logo-img" src="./images/shuba.gif" alt="nil" />
+					<img className="logo-img" src={process.env.PUBLIC_URL + "/images/shuba.gif"} alt="nil" />
 					<div className="logo-title">bryanluwz</div>
 				</Link>
 			</div>

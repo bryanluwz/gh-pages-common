@@ -8,7 +8,7 @@ export default class Footer extends Component {
 			<div className={`footer-wrapper ${this.props.isStickyFooter ? "footer-wrapper-sticky" : ""}`}>
 				<div className={`footer-container ${this.props.isStickyFooter ? "footer-container-sticky" : ""}`}>
 					<div className="footer-container-left">
-						<img className="footer-container-left-img" src="./images/shuba.png" alt="nil" onClick={this.props.toggleStickyFooter} />
+						<img className="footer-container-left-img" src={process.env.PUBLIC_URL + "/images/shuba.png"} alt="nil" onClick={this.props.toggleStickyFooter} />
 						<span className="footer-container-left-text">&copy; 2023 Bryan Lu</span>
 					</div>
 					<div className="footer-container-right">
