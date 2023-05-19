@@ -6,11 +6,26 @@ export default class ContentDisplay extends Component {
 		return (
 			<div className="content-segment" style={this.props.style}>
 				<div className="content-header">
-					<Link to={this.props.backButtonRoute} className="content-header-side-button">
-						<i
-							className="content-header-side-button fa fa-angle-left"
-							ria-hidden="true" />
-					</Link>
+					{
+						this.props.backButtonRoute ?
+							<Link to={this.props.backButtonRoute} className="content-header-side-button">
+								<i
+									className="content-header-side-button fa fa-angle-left"
+									ria-hidden="true" />
+							</Link>
+							:
+							this.props.backButtonRedirect ?
+								<i
+									className="content-header-side-button fa fa-angle-left"
+									ria-hidden="true"
+									onClick={() => { window.location.replace(this.props.backButtonRedirect); }}
+								/>
+								:
+								<i
+									className="content-header-side-button fa fa-angle-left"
+									ria-hidden="true"
+								/>
+					}
 					<div
 						className="content-header-title"
 						onClick={() => { this.props.handleHeaderTitleClick ? this.props.handleHeaderTitleClick() : console.log("this button does nothing"); }}>
