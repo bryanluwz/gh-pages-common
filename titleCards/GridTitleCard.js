@@ -50,7 +50,7 @@ export class GridTitleCard extends Component {
 				<div
 					className="grid-title-card-title"
 					style={{ cursor: "pointer" }}
-					onClick={() => { window.location.replace(this.props.link); }}
+					onClick={() => { window.location.replace(this.props.link); window.location.reload(); }}
 				>
 					{this.props.title}
 				</div>
