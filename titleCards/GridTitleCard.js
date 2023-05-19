@@ -35,8 +35,10 @@ export class GridTitleCard extends Component {
 			<div
 				className="grid-title-card"
 			>
-				<Link
-					to={this.props.link}>
+				<div
+					style={{ cursor: "pointer" }}
+					onClick={() => { window.location.replace(this.props.link); }}
+				>
 					<img
 						className="grid-title-card-img grid-title-card-bg-color"
 						style={{
@@ -44,13 +46,14 @@ export class GridTitleCard extends Component {
 						}}
 						src={process.env.PUBLIC_URL + this.props.imgSrc}
 						alt="idk" />
-				</Link>
-				<Link
+				</div>
+				<div
 					className="grid-title-card-title"
-					to={this.props.link}
+					style={{ cursor: "pointer" }}
+					onClick={() => { window.location.replace(this.props.link); }}
 				>
 					{this.props.title}
-				</Link>
+				</div>
 			</div >
 		);
 	}
