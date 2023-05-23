@@ -6,7 +6,7 @@ export class NewsCard extends Component {
 	render() {
 		const content = (
 			<Fragment>
-				<img className="title-card-img" src={this.props.imgSrc} alt="err" />
+				{this.props.imgSrc && <img className="title-card-img" src={this.props.imgSrc} alt="err" />}
 				<div className="title-card-content">
 					<div className="title-card-content-date">{this.props.contentDate}</div>
 					<div className="title-card-content-title">{this.props.contentTitle}</div>
