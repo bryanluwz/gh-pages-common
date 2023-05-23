@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 import { CarouselCard, CarouselCardWrapper } from "../carousel";
 import { Segment } from "../segment";
-import { GridTitleCard, GridTitleCardWrapper, ImageTextTitleCard, NewsCard, NewsCardWrapper } from "../titleCards";
+import { ImageTextTitleCard, NewsCard, NewsCardWrapper } from "../titleCards";
 
 export default class HomePage extends Component {
 	render() {
