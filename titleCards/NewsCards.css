@@ -72,7 +72,7 @@
     cursor: pointer;
 }
 
-.news-card-container:first-child {
+.news-card-container:first-of-type {
     border-top: 0px solid var(--lavender-pastel-1);
 }
 

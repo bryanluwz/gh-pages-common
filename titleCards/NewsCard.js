@@ -2,7 +2,6 @@ import { Component, Fragment } from "react";
 
 import "./NewsCards.css";
 import { Link } from "react-router-dom";
-
 export class NewsCard extends Component {
 	render() {
 		const content = (
@@ -44,15 +43,22 @@ export class NewsCardWrapper extends Component {
 	render() {
 		return (
 			<div className="news-card-wrapper">
-				{this.props.children}
-				{this.props.viewMoreLink &&
+				{this.props.children?.length > 0 ?
+					this.props.children
+					:
+					<div style={{ width: "100%", textAlign: "center", marginBottom: "20px" }}>There ought to be something here</div>
+				}
+
+				{
+					(this.props.viewMoreLink && this.props.children?.length > 0) &&
 					<div className="title-card-button-wrapper">
 						<Link to={this.props.viewMoreLink}>
 							<button>View more</button>
 							<i className="fa fa-plus" aria-hidden="true" />
 						</Link>
-					</div>}
-			</div>
+					</div>
+				}
+			</div >
 		);
 	}
 }
