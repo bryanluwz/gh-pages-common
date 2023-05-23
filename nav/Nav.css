@@ -51,10 +51,16 @@
 
 @media screen and (max-width: 600px) {
     .nav-button {
-        font-size: var(--h5-font-size);
+        font-size: var(--h4-font-size);
     }
 
     .nav-container {
         height: 5vh;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .nav-button {
+        font-size: var(--h5-font-size);
     }
 }

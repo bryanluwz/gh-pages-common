@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 import { CarouselCard, CarouselCardWrapper } from "../carousel";
 import { Segment } from "../segment";
-import { GridTitleCard, GridTitleCardWrapper, ImageTextTitleCard } from "../titleCards";
+import { GridTitleCard, GridTitleCardWrapper, ImageTextTitleCard, NewsCard, NewsCardWrapper } from "../titleCards";
 
 export default class HomePage extends Component {
 	render() {
@@ -33,30 +33,25 @@ export default class HomePage extends Component {
 				>
 					<ImageTextTitleCard
 						imgSrc={"./images/shuba.png"}
-						title={"Hello there"}
+						title={"Oh, hey~~"}
 					>
-						<span>Oh, hey, didn't see you there!</span>
-						<br />
+						<span>Didn't see you there!</span>
 						<br />
 						<span>Welcome to my website • ω •</span>
 						<br />
-						<br />
-						<Link to={"/about"}><u>moar info</u></Link>
+						<Link to={"/about"}><u>Want to know more?</u></Link>
 					</ImageTextTitleCard>
 				</Segment>
 
-				{/* Segment - some fun stuff */}
+				{/* Segment - Fun stuff */}
 				<Segment
-					title={"fun stuff"}
+					title={"Funsies"}
 				>
 					{Object.keys(this.props.gameDictionary).length === 0 ?
-						<span>where's the content &gt;_&lt;</span>
+						<span style={{ textAlign: "center", marginBottom: "20px" }}>There ought to be something here</span>
 						:
-						<GridTitleCardWrapper
-							withViewMore={true}
-							viewMoreLink={"/fun-stuff"}
-							minElemSize={'140px'}
-							maxElemSize={'1fr'}
+						<NewsCardWrapper
+							viewMoreLink={"fun-stuff"}
 						>
 							{
 								Object.keys(this.props.gameDictionary)
@@ -65,16 +60,19 @@ export default class HomePage extends Component {
 										var moduleInfo = this.props.gameDictionary[ModuleDisplayName];
 										var routeLink = moduleInfo.routeLink;
 										return (
-											< GridTitleCard
+											<NewsCard
 												key={index}
 												link={routeLink}
 												imgSrc={moduleInfo.icon}
-												title={moduleInfo.displayName}
+												contentTitle={moduleInfo.displayName}
+												contentSubtitle={moduleInfo.subtitle}
+												contentDate={moduleInfo.lastUpdatedDate}
 											/>
 										);
 									})
 							}
-						</GridTitleCardWrapper>}
+						</NewsCardWrapper>
+					}
 				</Segment>
 
 				{/* Segment - uni */}
@@ -82,31 +80,31 @@ export default class HomePage extends Component {
 					title={"uni"}
 				>
 					{Object.keys(this.props.uniDictionary).length === 0 ?
-						<span>where's the content &gt;_&lt;</span>
+						<span style={{ textAlign: "center", marginBottom: "20px" }}>There ought to be something here</span>
 						:
-						<GridTitleCardWrapper
-							withViewMore={true}
-							viewMoreLink={"/uni-stuff"}
-							minElemSize={'140px'}
-							maxElemSize={'1fr'}
+						<NewsCardWrapper
+							viewMoreLink={"fun-stuff"}
 						>
 							{
-								Object.keys(this.props.uniDictionary)
-									.slice(0, Math.min(Object.keys(this.props.uniDictionary).length, 4))
+								Object.keys(this.props.gameDictionary)
+									.slice(0, Math.min(Object.keys(this.props.gameDictionary).length, 4))
 									.map((ModuleDisplayName, index) => {
-										var moduleInfo = this.props.uniDictionary[ModuleDisplayName];
+										var moduleInfo = this.props.gameDictionary[ModuleDisplayName];
 										var routeLink = moduleInfo.routeLink;
 										return (
-											< GridTitleCard
+											<NewsCard
 												key={index}
 												link={routeLink}
 												imgSrc={moduleInfo.icon}
-												title={moduleInfo.displayName}
+												contentTitle={moduleInfo.displayName}
+												contentSubtitle={moduleInfo.subtitle}
+												contentDate={moduleInfo.lastUpdatedDate}
 											/>
 										);
 									})
 							}
-						</GridTitleCardWrapper>}
+						</NewsCardWrapper>
+					}
 				</Segment>
 			</Fragment>
 		);

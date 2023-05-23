@@ -38,8 +38,12 @@
 
     --teal-pastel-1: #e4fbf7;
 
-    --lavender-pastel-font-1: #5d4542;
+    --lavender-pastel-font-1: #4e3b39;
     --lavender-pastel-font-grayscale: #b4a3a3;
+
+    --grayscale-font-1: #707070;
+
+    --gray-pastel-1: #eeeeee;
 }
 
 @media screen and (min-width: 2000px) {
