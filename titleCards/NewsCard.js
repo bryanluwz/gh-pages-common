@@ -23,6 +23,10 @@ export class NewsCard extends Component {
 						<Link
 							className="news-card-container news-card-container-link"
 							to={this.props.link}
+							onClick={(evt) => {
+								evt.preventDefault();
+								window.location.replace(this.props.link);
+							}}
 						>
 							{content}
 						</Link>
