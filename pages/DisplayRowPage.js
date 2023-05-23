@@ -12,6 +12,15 @@ export default class DisplayRowPage extends Component {
 		};
 	}
 
+	componentDidUpdate(prevProps, prevState) {
+		if (prevProps.dictionary !== this.props.dictionary) {
+
+			this.setState({
+				sortedDictionary: { ...this.props.dictionary }
+			});
+		}
+	}
+
 	setSortedDictionary = (sorted) => {
 		this.setState({
 			sortedDictionary: sorted
