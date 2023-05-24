@@ -6,7 +6,7 @@ export class ImageTextTitleCard extends Component {
 	render() {
 		return (
 			<div className="image-text-title-card-container">
-				<img className="image-text-title-card-img" src={this.props.imgSrc} alt="idk" />
+				<img className="image-text-title-card-img" src={process.env.PUBLIC_URL + this.props.imgSrc} alt="idk" />
 				<div className="image-text-title-card-text">
 					<div className="image-text-title-card-text-title">
 						{this.props.title}

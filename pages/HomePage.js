@@ -9,30 +9,36 @@ import { ImageTextTitleCard, NewsCard, NewsCardWrapper } from "../titleCards";
 
 export default class HomePage extends Component {
 	render() {
+		const miscDictionary = this.props.miscDictionary;
 		return (
 			<Fragment>
 				{/* Carousel */}
-				<CarouselCardWrapper>
-					<CarouselCard
-						isLink={true}
-						link={"/fun-stuff"}
-						imgSrc={"./images/testimg1.webp"}
-						imgAlt={"nil"}
-					/>
-					<CarouselCard
-						isLink={false}
-						link={""}
-						imgSrc={"./images/testimg2.webp"}
-						imgAlt={"nil"}
-					/>
-				</CarouselCardWrapper>
+				{Object.keys(miscDictionary?.carousel).length > 0 ?
+					<CarouselCardWrapper>
+						{
+							Object.keys(miscDictionary?.carousel).map((carouselKey, index) => {
+								console.log(carouselKey);
+								return (
+									<CarouselCard
+										key={index}
+										link={miscDictionary.carousel[carouselKey].link}
+										imgSrc={miscDictionary.carousel[carouselKey].imgSrc}
+										alt={"nil"}
+									/>
+								);
+							})
+						}
+					</CarouselCardWrapper>
+					:
+					<Fragment />
+				}
 
 				{/* Segment -- Hello there */}
 				<Segment
 					title={"about"}
 				>
 					<ImageTextTitleCard
-						imgSrc={"./images/shuba.png"}
+						imgSrc={miscDictionary?.aboutSection.imgSrc}
 						title={"Oh, hey~~"}
 					>
 						<span>Didn't see you there!</span>

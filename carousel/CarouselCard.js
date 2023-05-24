@@ -6,13 +6,13 @@ export default class CarouselCard extends Component {
 		return (
 			<Fragment>
 				{
-					this.props.isLink ?
+					this.props.link ?
 						<Link className="carousel-card" to={this.props.link}>
-							<img src={this.props.imgSrc} alt={this.props.imgAlt} />
+							<img src={process.env.PUBLIC_URL + this.props.imgSrc} alt={this.props.imgAlt} />
 						</Link>
 						:
 						<div className="carousel-card">
-							<img src={this.props.imgSrc} alt={this.props.imgAlt} />
+							<img src={process.env.PUBLIC_URL + this.props.imgSrc} alt={this.props.imgAlt} />
 						</div>
 				}
 			</Fragment>
