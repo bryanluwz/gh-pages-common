@@ -11,9 +11,16 @@ export default class SearchBar extends Component {
 		this.searchQuery = null;
 	}
 
+	componentDidUpdate(prevProps, prevState) {
+		if (prevProps.dictionary !== this.props.dictionary) {
+			this.dictionary = this.props.dictionary;
+		}
+	}
+
 	sortDictionary = () => {
 		const searchQuery = this.searchQuery;
 
+		// Check for matching object keys
 		const matchingKeys = Object.keys(this.dictionary).filter(
 			(key) => key.toLowerCase().includes(searchQuery.toLowerCase())
 		);
@@ -35,18 +42,17 @@ export default class SearchBar extends Component {
 		return (
 			<div className="searchbar-wrapper">
 				<div className="searchbar-container">
+					<i
+						className="fa fa-search"
+						aria-hidden="true"
+						onClick={() => {
+							this.searchbarRef.current.focus();
+						}}
+					/>
 					<input
 						ref={this.searchbarRef}
 						placeholder={this.props.placeholder ? this.props.placeholder : "Search"}
 						spellCheck={false}
-						onChange={() => {
-							this.searchQuery = this.searchbarRef.current.value;
-							this.sortDictionary();
-						}}
-					/>
-					<i
-						className="fa fa-search"
-						aria-hidden="true"
 						onChange={() => {
 							this.searchQuery = this.searchbarRef.current.value;
 							this.sortDictionary();

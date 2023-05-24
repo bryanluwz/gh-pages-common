@@ -54,7 +54,7 @@ export class NewsCardWrapper extends Component {
 					<div className="title-card-button-wrapper">
 						<Link to={this.props.viewMoreLink}>
 							<button>View more</button>
-							<i className="fa fa-plus" aria-hidden="true" />
+							<i className="fa" aria-hidden="true" >&#43;</i>
 						</Link>
 					</div>
 				}
