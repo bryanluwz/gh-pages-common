@@ -86,7 +86,7 @@
     }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
     .image-text-title-card-text-title {
         font-size: var(--h4-font-size);
     }

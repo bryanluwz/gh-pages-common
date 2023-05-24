@@ -49,13 +49,13 @@
     border-color: var(--lavender-pastel-1);
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
     .nav-button {
         font-size: var(--h4-font-size);
     }
 
     .nav-container {
-        height: 5vh;
+        height: 7vh;
     }
 }
 
