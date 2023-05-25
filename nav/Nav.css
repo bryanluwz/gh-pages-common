@@ -1,26 +1,36 @@
-.nav-container {
+.nav-wrapper {
     width: 100%;
-    height: 10vh;
 
-    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-container {
+    width: max-content;
+
+    margin: 10px 0px;
 
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+
+    overflow-x: scroll;
+    overflow-y: hidden;
+
+    scroll-behavior: smooth;
 }
 
 .nav-container::-webkit-scrollbar {
     display: none;
 }
 
-.nav-button-container {
-    margin: 2%;
-}
-
-.nav-button {
+.nav-button-container button {
     width: auto;
     height: auto;
+
+    margin: 0.5em 0.7em;
 
     border: none;
     outline: transparent;
@@ -36,31 +46,26 @@
     transition: 0.2s ease;
 }
 
-.nav-button:hover {
-    color: var(--lavender-pastel-1);
+.nav-button-container button:hover {
+    color: var(--lavender-pastel-1) !important;
 }
 
 .nav-button-underline {
-    border-bottom: 1.5px solid var(--lavender-pastel-font-1);
-    transition: 0.2s ease;
+    border-bottom: 1.5px solid var(--lavender-pastel-font-1) !important;
 }
 
 .nav-button-underline:hover {
-    border-color: var(--lavender-pastel-1);
+    border-color: var(--lavender-pastel-1) !important;
 }
 
 @media screen and (max-width: 800px) {
-    .nav-button {
+    .nav-button-container button {
         font-size: var(--h4-font-size);
-    }
-
-    .nav-container {
-        height: 7vh;
     }
 }
 
 @media screen and (max-width: 450px) {
-    .nav-button {
+    .nav-button-container button {
         font-size: var(--h5-font-size);
     }
 }

@@ -8,6 +8,11 @@ import { Segment } from "../segment";
 import { ImageTextTitleCard, NewsCard, NewsCardWrapper } from "../titleCards";
 
 export default class HomePage extends Component {
+	constructor(props) {
+		super(props);
+		this.maxCardPerSegment = 3;
+	}
+
 	render() {
 		const carouselDictionary = this.props.carouselDictionary;
 		const miscDictionary = this.props.miscDictionary;
@@ -49,6 +54,34 @@ export default class HomePage extends Component {
 					</ImageTextTitleCard>
 				</Segment>
 
+				{/* Segment - News */}
+				<Segment
+					title={"News"}
+				>
+					<NewsCardWrapper
+						viewMoreLink={"news"}
+					>
+						{this.props.newsDictionary &&
+							Object.keys(this.props.newsDictionary)
+								.slice(0, Math.min(Object.keys(this.props.gameDictionary).length, this.maxCardPerSegment))
+								.map((ModuleDisplayName, index) => {
+									var moduleInfo = this.props.gameDictionary[ModuleDisplayName];
+									var routeLink = moduleInfo.routeLink;
+									return (
+										<NewsCard
+											key={index}
+											link={routeLink}
+											imgSrc={moduleInfo.icon}
+											contentTitle={moduleInfo.displayName}
+											contentSubtitle={moduleInfo.subtitle}
+											contentDate={moduleInfo.lastUpdatedDate}
+										/>
+									);
+								})
+						}
+					</NewsCardWrapper>
+				</Segment>
+
 				{/* Segment - Fun stuff */}
 				<Segment
 					title={"Funsies"}
@@ -57,8 +90,9 @@ export default class HomePage extends Component {
 						viewMoreLink={"fun-stuff"}
 					>
 						{
+							this.props.gameDictionary &&
 							Object.keys(this.props.gameDictionary)
-								.slice(0, Math.min(Object.keys(this.props.gameDictionary).length, 4))
+								.slice(0, Math.min(Object.keys(this.props.gameDictionary).length, this.maxCardPerSegment))
 								.map((ModuleDisplayName, index) => {
 									var moduleInfo = this.props.gameDictionary[ModuleDisplayName];
 									var routeLink = moduleInfo.routeLink;
@@ -85,8 +119,9 @@ export default class HomePage extends Component {
 						viewMoreLink={"uni-stuff"}
 					>
 						{
+							this.props.uniDictionary &&
 							Object.keys(this.props.uniDictionary)
-								.slice(0, Math.min(Object.keys(this.props.uniDictionary).length, 4))
+								.slice(0, Math.min(Object.keys(this.props.uniDictionary).length, this.maxCardPerSegment))
 								.map((ModuleDisplayName, index) => {
 									var moduleInfo = this.props.uniDictionary[ModuleDisplayName];
 									var routeLink = moduleInfo.routeLink;

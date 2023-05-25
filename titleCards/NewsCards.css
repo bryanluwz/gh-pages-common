@@ -85,6 +85,12 @@
     cursor: pointer;
 }
 
+.news-view-container {
+    flex-direction: column;
+
+    cursor: default;
+}
+
 .news-card-container:first-of-type {
     border-top: 0px solid var(--lavender-pastel-1);
 }
@@ -112,6 +118,11 @@
     align-self: center;
 
     transition: 0.4s ease;
+}
+
+.news-view-container > img {
+    width: 100%;
+    height: auto;
 }
 
 @media screen and (max-width: 500px) {

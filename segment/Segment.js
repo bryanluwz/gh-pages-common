@@ -13,7 +13,7 @@ export default class Segment extends Component {
 					</span>
 					<span className="segment-header-title-padding"> </span>
 				</div>}
-				<div className="segment-body">
+				<div className="segment-body" style={this.props.segmentBodyStyle}>
 					{this.props.children}
 				</div>
 			</div>

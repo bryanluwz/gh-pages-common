@@ -1,0 +1,15 @@
+.news-page-container {
+    width: 100%;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.news-page-headlines {
+    width: 40%;
+}
+
+.news-page-view {
+    width: 55%;
+}

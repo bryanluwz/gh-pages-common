@@ -2,6 +2,7 @@ import { Component, Fragment } from "react";
 
 import "./NewsCards.css";
 import { Link } from "react-router-dom";
+
 export class NewsCard extends Component {
 	render() {
 		const content = (
@@ -9,7 +10,10 @@ export class NewsCard extends Component {
 				{this.props.imgSrc && <img className="title-card-img" src={this.props.imgSrc} alt="err" />}
 				<div className="title-card-content">
 					<div className="title-card-content-date">{this.props.contentDate}</div>
-					<div className="title-card-content-title">{this.props.contentTitle}</div>
+					{this.props.contentTitle ?
+						<div className="title-card-content-title">{this.props.contentTitle}</div> :
+						<div className="title-card-content-title">{this.props.contentKey}</div>
+					}
 					<div className="title-card-content-subtitle">{this.props.contentSubtitle}</div>
 				</div>
 			</Fragment>
@@ -30,7 +34,7 @@ export class NewsCard extends Component {
 							{content}
 						</Link>
 						:
-						<div className="news-card-container">
+						<div className="news-card-container" onClick={this.props.onClick}>
 							{content}
 						</div>
 				}
@@ -59,6 +63,26 @@ export class NewsCardWrapper extends Component {
 					</div>
 				}
 			</div >
+		);
+	}
+}
+
+export class NewsView extends Component {
+	render() {
+		return (
+			<Fragment>
+				<div className={`news-card-container news-view-container ${this.props.contentTransitionStage}`} onAnimationEnd={this.props.onAnimationEnd}>
+					{this.props.imgSrc && <img className="title-card-img" src={this.props.imgSrc} alt="err" />}
+					<div className="title-card-content">
+						<div className="title-card-content-date">{this.props.lastUpdatedDate}</div>
+						{this.props.contentTitle ?
+							<div className="title-card-content-title">{this.props.contentTitle}</div> :
+							<div className="title-card-content-title">{this.props.contentKey}</div>
+						}
+						<div className="title-card-content-subtitle">{this.props.contentBody}</div>
+					</div>
+				</div>
+			</Fragment>
 		);
 	}
 }

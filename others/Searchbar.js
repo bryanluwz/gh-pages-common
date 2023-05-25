@@ -5,6 +5,8 @@ import "./Searchbar.css";
 export default class SearchBar extends Component {
 	constructor(props) {
 		super(props);
+
+		this.unarrangedDictionary = { ...this.props.dictionary };
 		this.dictionary = this.props.dictionary;
 
 		this.searchbarRef = createRef();
@@ -19,14 +21,29 @@ export default class SearchBar extends Component {
 
 	sortDictionary = () => {
 		const searchQuery = this.searchQuery;
+		if (searchQuery === "") {
+			this.props.setSortedDictionary(this.unarrangedDictionary);
+		}
+
+		var matchingKeys = [];
 
 		// Check for matching object keys
-		const matchingKeys = Object.keys(this.dictionary).filter(
-			(key) => key.toLowerCase().includes(searchQuery.toLowerCase())
-		);
+		matchingKeys = matchingKeys.concat(Object.keys(this.dictionary).filter(
+			(key) => {
+				const isMatch = (
+					key.toLowerCase().includes(searchQuery.toLowerCase()) ||
+					(this.dictionary[key]?.displayName?.toLowerCase()?.includes(searchQuery.toLowerCase())) ||
+					(this.dictionary[key]?.contentTitle?.toLowerCase()?.includes(searchQuery.toLowerCase())) ||
+					(this.dictionary[key]?.subtitle?.toLowerCase()?.includes(searchQuery.toLowerCase())) ||
+					(this.dictionary[key]?.contentSubtitle?.toLowerCase()?.includes(searchQuery.toLowerCase()))
+				);
+				return isMatch;
+			}
+		));
+
 
 		const nonMatchingKeys = Object.keys(this.dictionary).filter(
-			(key) => !key.toLowerCase().includes(searchQuery.toLowerCase())
+			(key) => !matchingKeys.includes(key)
 		);
 
 		const reorderedKeys = [...matchingKeys, ...nonMatchingKeys];
