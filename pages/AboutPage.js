@@ -11,40 +11,42 @@ export default class AboutPage extends Component {
 			"var(--pink-pastel-1)",
 			"var(--yellow-pastel-1)"
 		];
-		this.bgColorsIndex = 0;
 	}
 
-	getNextBackgroundColor = () => {
-		var bgColor = this.bgColors[this.bgColorsIndex];
-		this.bgColorsIndex = (this.bgColorsIndex + 1) % this.bgColors.length;
-		return bgColor;
-	};
-
 	render() {
+		var bgColorsIndex = 0;
+		const bgColors = this.bgColors;
+
+		function getNextBackgroundColor() {
+			var bgColor = bgColors[bgColorsIndex];
+			bgColorsIndex = (bgColorsIndex + 1) % bgColors.length;
+			return bgColor;
+		};
+
 		return (
 			<Fragment>
 				<Segment
 					title='me'
 				>
-					<TextTitleCard title={"hello there"} backgroundColor={this.getNextBackgroundColor()}>
-						<span>annyeong konnichiwa nihao im <b>bryan</b> from malaysia degozaimasuhamida</span>
+					<TextTitleCard title={"Hello there"} backgroundColor={getNextBackgroundColor()}>
+						<span>Annyeong konnichiwa nihao im <b>bryan</b> from malaysia degozaimasuhamida!</span>
 						<br /><br />
-						<span>im currently studying in singapore ntu komputer enginiring course tho</span>
+						<span>I'm currently studying in Singapore's NTU Computer Engineering course!</span>
 					</TextTitleCard>
 				</Segment>
 
 				<Segment
 					title='heckin cats'
 				>
-					<TextTitleCard title="did you knows" backgroundColor={this.getNextBackgroundColor()}>
-						catters haz five beans on front scritchers, but only four beans on back scritchers
+					<TextTitleCard title="Did you know?" backgroundColor={getNextBackgroundColor()}>
+						Catters haz five beans on front scritchers, but only four beans on back scritchers
 					</TextTitleCard>
 				</Segment>
 
 				<Segment
 					title='Uni Life'
 				>
-					<TextTitleCard title="NTU is NUTs" backgroundColor={this.getNextBackgroundColor()}>
+					<TextTitleCard title="NTU is NUTs" backgroundColor={getNextBackgroundColor()}>
 						<span>the only thing i like about ntu are the cats there</span>
 						<br />
 						<br />

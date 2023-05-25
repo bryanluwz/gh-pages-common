@@ -126,7 +126,7 @@
 .news-card-container .title-card-content {
     width: auto;
 
-    padding: 18px 0 18px 3%;
+    padding: 18px 3% 18px 3%;
 
     font-family: var(--text-font);
     color: var(--lavender-pastel-font-1);

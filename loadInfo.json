@@ -1,14 +1,5 @@
 {
     "misc": {
-        "carousel": {
-            "img1": {
-                "imgSrc": "/images/carousel/testimg1.webp",
-                "link": "https://bryanluwz.github.io/#/fun-stuff"
-            },
-            "img2": {
-                "imgSrc": "/images/carousel/testimg2.webp"
-            }
-        },
         "aboutSection": {
             "imgSrc": "/images/misc/aboutSection.png"
         },

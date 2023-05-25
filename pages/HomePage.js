@@ -9,20 +9,20 @@ import { ImageTextTitleCard, NewsCard, NewsCardWrapper } from "../titleCards";
 
 export default class HomePage extends Component {
 	render() {
+		const carouselDictionary = this.props.carouselDictionary;
 		const miscDictionary = this.props.miscDictionary;
 		return (
 			<Fragment>
 				{/* Carousel */}
-				{Object.keys(miscDictionary?.carousel).length > 0 ?
+				{carouselDictionary && Object.keys(carouselDictionary)?.length > 0 ?
 					<CarouselCardWrapper>
 						{
-							Object.keys(miscDictionary?.carousel).map((carouselKey, index) => {
-								console.log(carouselKey);
+							Object.keys(carouselDictionary).map((carouselKey, index) => {
 								return (
 									<CarouselCard
 										key={index}
-										link={miscDictionary.carousel[carouselKey].link}
-										imgSrc={miscDictionary.carousel[carouselKey].imgSrc}
+										link={carouselDictionary[carouselKey].link}
+										imgSrc={carouselDictionary[carouselKey].imgSrc}
 										alt={"nil"}
 									/>
 								);
