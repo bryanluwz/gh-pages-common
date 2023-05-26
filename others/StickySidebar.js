@@ -26,14 +26,12 @@ export default class StickySidebar extends Component {
 		const sidebar = this.sidebarRef.current;
 		const scrollPosition = window.pageYOffset;
 
-		if (scrollPosition >= newsPageContainerOffset) {
+		if (scrollPosition >= newsPageContainerOffset || sidebar.style.top > newsPageContainerOffset) {
 			this.setState({ isSticky: true });
-			sidebar.style.position = 'relative';
-			sidebar.style.top = `${scrollPosition - newsPageContainerOffset + 10}px`;
-		} else {
+			sidebar.style.top = `${scrollPosition - newsPageContainerOffset}px`;
+		}
+		else {
 			this.setState({ isSticky: false });
-			sidebar.style.transition = '0.3s ease';
-			sidebar.style.position = 'sticky';
 			sidebar.style.top = '0';
 		}
 	};
@@ -42,7 +40,11 @@ export default class StickySidebar extends Component {
 		const { isSticky } = this.state;
 
 		return (
-			<div ref={this.sidebarRef} className={`${this.props.className ? this.props.className : ""} ${isSticky ? 'sticky' : ''}`} >
+			<div
+				ref={this.sidebarRef}
+				className={`${this.props.className ? this.props.className : ""} ${isSticky ? 'sticky' : ''}`}
+				style={{ position: 'relative', transition: "0.3s ease" }}
+			>
 				{/* Sidebar Content */}
 				{this.props.children}
 			</div>

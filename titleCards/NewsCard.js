@@ -2,6 +2,7 @@ import { Component, Fragment } from "react";
 
 import "./NewsCards.css";
 import { Link } from "react-router-dom";
+import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 
 export class NewsCard extends Component {
 	render() {
@@ -79,7 +80,9 @@ export class NewsView extends Component {
 							<div className="title-card-content-title">{this.props.contentTitle}</div> :
 							<div className="title-card-content-title">{this.props.contentKey}</div>
 						}
-						<div className="title-card-content-subtitle">{this.props.contentBody}</div>
+						<div className="title-card-content-subtitle">
+							<ReactMarkdown children={this.props.contentBody} />
+						</div>
 					</div>
 				</div>
 			</Fragment>

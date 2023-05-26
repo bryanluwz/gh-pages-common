@@ -28,7 +28,7 @@ export default class SearchBar extends Component {
 		var matchingKeys = [];
 
 		// Check for matching object keys
-		matchingKeys = matchingKeys.concat(Object.keys(this.dictionary).filter(
+		matchingKeys = matchingKeys.concat(Object.keys(this.unarrangedDictionary).filter(
 			(key) => {
 				const isMatch = (
 					key.toLowerCase().includes(searchQuery.toLowerCase()) ||

@@ -9,8 +9,15 @@ import "./NewsPage.css";
 export default class NewsPage extends Component {
 	constructor(props) {
 		super(props);
+
 		this.state = {
-			sortedDictionary: { ...this.props.dictionary },
+			sortedDictionary: Object.fromEntries(
+				Object.entries(this.props.dictionary).sort(([, newsA], [, newsB]) => {
+					const newsDateA = new Date(newsA.lastUpdatedDate);
+					const newsDateB = new Date(newsB.lastUpdatedDate);
+					return newsDateB - newsDateA;
+				})
+			),
 			selectedNews: null,
 			selectedNewsBuffer: null,
 			contentTransitionStage: "fadeIn"
@@ -38,6 +45,7 @@ export default class NewsPage extends Component {
 
 	render() {
 		const { sortedDictionary } = this.state;
+
 		return (
 			<Segment segmentBodyStyle={{ width: "90%" }}>
 				<Searchbar
