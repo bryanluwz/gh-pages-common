@@ -8,8 +8,25 @@
 
 .news-page-headlines {
     width: 40%;
+
+    transition: 0.4s ease;
+}
+
+.news-page-headlines-wide {
+    width: 100%;
 }
 
 .news-page-view {
     width: 55%;
+}
+
+.news-page-view-wide {
+    width: 90%;
+
+    padding-left: 5%;
+}
+
+.news-page-view-wide img {
+    width: 100%;
+    height: auto;
 }

@@ -1,10 +1,19 @@
-import { Component, Fragment } from "react";
+import { Component, Fragment, createRef } from "react";
 
 import "./NewsCards.css";
 import { Link } from "react-router-dom";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 
 export class NewsCard extends Component {
+	constructor(props) {
+		super(props);
+		this.ref = createRef();
+	}
+
+	scrollIntoView = () => {
+		this.ref.current.scrollIntoView({ behavior: 'smooth' });
+	};
+
 	render() {
 		const content = (
 			<Fragment>
@@ -25,6 +34,7 @@ export class NewsCard extends Component {
 				{
 					this.props.link ?
 						<Link
+							ref={this.ref}
 							className={`news-card-container news-card-container-link ${this.props.isSelected ? "news-card-container-highlighted" : ""}`}
 							to={this.props.link}
 							onClick={
@@ -38,7 +48,9 @@ export class NewsCard extends Component {
 							{content}
 						</Link>
 						:
-						<div className={`news-card-container ${this.props.isSelected ? "news-card-container-highlighted" : ""}`}
+						<div
+							ref={this.ref}
+							className={`news-card-container ${this.props.isSelected ? "news-card-container-highlighted" : ""}`}
 							onClick={this.props.onClick}
 						>
 							{content}
@@ -80,10 +92,9 @@ export class NewsView extends Component {
 				<div className={`news-card-container news-view-container ${this.props.contentTransitionStage}`} onAnimationEnd={this.props.onAnimationEnd}>
 					{this.props.imgSrc && <img className="title-card-img" src={this.props.imgSrc} alt="err" />}
 					<div className="title-card-content">
-						<div className="title-card-content-date">{this.props.lastUpdatedDate}</div>
-						{this.props.contentTitle ?
+						{!this.props.isSmallView && (this.props.contentTitle ?
 							<div className="title-card-content-title">{this.props.contentTitle}</div> :
-							<div className="title-card-content-title">{this.props.contentKey}</div>
+							<div className="title-card-content-title">{this.props.contentKey}</div>)
 						}
 						<div className="title-card-content-subtitle">
 							<ReactMarkdown children={this.props.contentBody} />
