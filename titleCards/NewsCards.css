@@ -99,6 +99,10 @@
     background-color: var(--lavender-pastel-5);
 }
 
+.news-card-container-highlighted {
+    background-color: var(--lavender-pastel-5);
+}
+
 @media screen and (max-width: 500px) {
     .news-card-container {
         width: 96%;

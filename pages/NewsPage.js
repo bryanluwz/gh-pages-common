@@ -5,19 +5,14 @@ import Error404Page from "./error404";
 import { Searchbar, StickySidebar } from "../others";
 
 import "./NewsPage.css";
+import withRouter from "../utils/withRouter";
 
-export default class NewsPage extends Component {
+class NewsPage extends Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
-			sortedDictionary: Object.fromEntries(
-				Object.entries(this.props.dictionary).sort(([, newsA], [, newsB]) => {
-					const newsDateA = new Date(newsA.lastUpdatedDate);
-					const newsDateB = new Date(newsB.lastUpdatedDate);
-					return newsDateB - newsDateA;
-				})
-			),
+			sortedDictionary: { ...this.props.dictionary },
 			selectedNews: null,
 			selectedNewsBuffer: null,
 			contentTransitionStage: "fadeIn"
@@ -25,7 +20,14 @@ export default class NewsPage extends Component {
 	}
 
 	componentDidMount() {
-		this.setState({ selectedNews: Object.keys(this.state.sortedDictionary)[0] });
+		const selectedNews = (this.props.router.params.newsKey?.toLowerCase() !== "news") ?
+			this.props.router.params.newsKey?.replace(":", '') :
+			Object.keys(this.state.sortedDictionary)[0];
+
+		this.setState({
+			selectedNews: selectedNews,
+			selectedNewsBuffer: selectedNews
+		});
 	}
 
 	componentDidUpdate(prevProps, prevState) {
@@ -72,7 +74,11 @@ export default class NewsPage extends Component {
 														contentSubtitle={news.contentSubtitle}
 														contentBody={news.contentBody}
 														contentDate={news.lastUpdatedDate}
-														onClick={() => { this.setState({ selectedNewsBuffer: NewsKey, contentTransitionStage: 'fadeOut' }); }}
+														isSelected={NewsKey === this.state.selectedNewsBuffer}
+														onClick={() => {
+															this.setState({ selectedNewsBuffer: NewsKey, contentTransitionStage: 'fadeOut' });
+															this.props.router.navigate(`/news/:${NewsKey}`);
+														}}
 													/>
 												);
 											})
@@ -100,3 +106,5 @@ export default class NewsPage extends Component {
 		);
 	}
 }
+
+export default withRouter(NewsPage);

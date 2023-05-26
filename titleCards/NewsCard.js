@@ -25,17 +25,22 @@ export class NewsCard extends Component {
 				{
 					this.props.link ?
 						<Link
-							className="news-card-container news-card-container-link"
+							className={`news-card-container news-card-container-link ${this.props.isSelected ? "news-card-container-highlighted" : ""}`}
 							to={this.props.link}
-							onClick={(evt) => {
-								evt.preventDefault();
-								window.location.replace(this.props.link);
-							}}
+							onClick={
+								this.props.onClick ?
+									this.props.onClick :
+									(evt) => {
+										evt.preventDefault();
+										window.location.replace(this.props.link);
+									}}
 						>
 							{content}
 						</Link>
 						:
-						<div className="news-card-container" onClick={this.props.onClick}>
+						<div className={`news-card-container ${this.props.isSelected ? "news-card-container-highlighted" : ""}`}
+							onClick={this.props.onClick}
+						>
 							{content}
 						</div>
 				}

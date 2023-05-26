@@ -64,17 +64,18 @@ export default class HomePage extends Component {
 						{this.props.newsDictionary &&
 							Object.keys(this.props.newsDictionary)
 								.slice(0, Math.min(Object.keys(this.props.gameDictionary).length, this.maxCardPerSegment))
-								.map((ModuleDisplayName, index) => {
-									var moduleInfo = this.props.gameDictionary[ModuleDisplayName];
-									var routeLink = moduleInfo.routeLink;
+								.map((NewsKey, index) => {
+									var news = this.props.newsDictionary[NewsKey];
 									return (
 										<NewsCard
 											key={index}
-											link={routeLink}
-											imgSrc={moduleInfo.icon}
-											contentTitle={moduleInfo.displayName}
-											contentSubtitle={moduleInfo.subtitle}
-											contentDate={moduleInfo.lastUpdatedDate}
+											contentKey={NewsKey}
+											contentTitle={news.contentTitle}
+											contentSubtitle={news.contentSubtitle}
+											contentBody={news.contentBody}
+											contentDate={news.lastUpdatedDate}
+											link={`/news/:${NewsKey}`}
+											onClick={() => { ; }}
 										/>
 									);
 								})
