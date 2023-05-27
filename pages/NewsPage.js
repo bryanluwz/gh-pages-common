@@ -23,24 +23,26 @@ class NewsPage extends Component {
 	}
 
 	componentDidMount() {
-		// Init selected news
-		const selectedNews = (this.props.router.params.newsKey?.toLowerCase() !== "news") ?
-			this.props.router.params.newsKey?.replace(":", '') :
-			Object.keys(this.state.sortedDictionary)[0];
+		// Init resize handler function
+		const isSmallView = this.handleResize(); // Call once here to set / unset small view
 
-		this.setState({
-			selectedNews: selectedNews,
-			selectedNewsBuffer: selectedNews
-		});
+		// Init selected news 
+		if (isSmallView) {
+			const selectedNews = (this.props.router.params.newsKey?.toLowerCase() !== "news") ?
+				this.props.router.params.newsKey?.replace(":", '') :
+				Object.keys(this.state.sortedDictionary)[0];
+
+			this.setState({
+				selectedNews: selectedNews,
+				selectedNewsBuffer: selectedNews
+			});
+		}
 
 		// Init references
 		const newsCardRef = this.newsCardRef;
 		Object.keys(this.state.sortedDictionary).forEach(key => {
 			newsCardRef[key] = createRef();
 		});
-
-		// Init reize handler function
-		this.handleResize(); // Call once here to set / unset small view 
 
 		window.addEventListener("resize", this.handleResize);
 	}
@@ -57,7 +59,18 @@ class NewsPage extends Component {
 		}
 
 		if (this.state.isSmallView && this.state.contentTransitionStage === 'fadeIn' && this.newsCardRef[this.state.selectedNews]) {
-			console.log(this.newsCardRef[this.state.selectedNews].current.scrollIntoView());
+			this.newsCardRef[this.state.selectedNews].current.scrollIntoView();
+		}
+
+		if (!this.state.selectedNews && this.state.isSmallView !== prevState.isSmallView && !this.state.isSmallView) {
+			const selectedNews = (this.props.router.params.newsKey?.toLowerCase() !== "news") ?
+				this.props.router.params.newsKey?.replace(":", '') :
+				Object.keys(this.state.sortedDictionary)[0];
+
+			this.setState({
+				selectedNews: selectedNews,
+				selectedNewsBuffer: selectedNews
+			});
 		}
 	}
 
@@ -81,6 +94,8 @@ class NewsPage extends Component {
 				this.setState({ isSmallView: true });
 			}
 		}
+
+		return windowWidth > 800;
 	};
 
 	render() {
@@ -144,7 +159,7 @@ class NewsPage extends Component {
 						}
 					</div>
 					{
-						window.innerWidth > 800 ?
+						(window.innerWidth > 800 && this.state.selectedNews) ?
 							<div className="news-page-view">
 								<StickySidebar>
 									<NewsView
