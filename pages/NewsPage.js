@@ -130,8 +130,20 @@ class NewsPage extends Component {
 														contentDate={news.lastUpdatedDate}
 														isSelected={NewsKey === this.state.selectedNewsBuffer}
 														onClick={() => {
-															if (this.state.selectedNews === NewsKey) return;
-															this.setState({ selectedNewsBuffer: NewsKey, contentTransitionStage: 'fadeOut' });
+															if (this.state.selectedNews === NewsKey && this.state.isSmallView) {
+																this.setState({ selectedNews: null, selectedNewsBuffer: null });
+															}
+															else if (this.state.selectedNews === NewsKey && !this.state.isSmallView) {
+																return;
+															}
+
+															if (this.state.selectedNews) {
+																this.setState({ selectedNewsBuffer: NewsKey, contentTransitionStage: 'fadeOut' });
+															}
+															else {
+																this.setState({ selectedNews: NewsKey, selectedNewsBuffer: NewsKey });
+															}
+
 															this.props.router.navigate(`/news/:${NewsKey}`);
 														}}
 													/>
