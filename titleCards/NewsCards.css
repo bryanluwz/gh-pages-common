@@ -124,7 +124,17 @@
     transition: 0.4s ease;
 }
 
-.news-view-container > img {
+.news-view-container {
+    display: flex;
+}
+
+.news-view-container a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.news-view-container img {
     width: 80%;
     height: auto;
 }

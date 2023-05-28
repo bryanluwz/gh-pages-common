@@ -90,7 +90,12 @@ export class NewsView extends Component {
 		return (
 			<Fragment>
 				<div className={`news-card-container news-view-container ${this.props.contentTransitionStage}`} onAnimationEnd={this.props.onAnimationEnd}>
-					{this.props.imgSrc && <img className="title-card-img" src={this.props.imgSrc} alt="err" />}
+					{this.props.imgSrc &&
+						this.props.imgLink ?
+						<Link to={this.props.imgLink}><img className="title-card-img" src={this.props.imgSrc} alt="err" /></Link>
+						:
+						<img className="title-card-img" src={this.props.imgSrc} alt="err" />
+					}
 					<div className="title-card-content">
 						{!this.props.isSmallView && (this.props.contentTitle ?
 							<div className="title-card-content-title">{this.props.contentTitle}</div> :
