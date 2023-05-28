@@ -101,7 +101,9 @@ export class NewsView extends Component {
 								<img className="title-card-img" src={this.props.imgSrc} alt="idk" />
 							</Link>
 							:
-							<img className="title-card-img" src={this.props.imgSrc} alt="idk" />)
+							<div className="title-card-img-container">
+								<img className="title-card-img" src={this.props.imgSrc} alt="idk" />
+							</div>)
 					}
 					<div className="title-card-content">
 						{!this.props.isSmallView && (this.props.contentTitle ?
