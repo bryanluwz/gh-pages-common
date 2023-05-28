@@ -92,9 +92,16 @@ export class NewsView extends Component {
 				<div className={`news-card-container news-view-container ${this.props.contentTransitionStage}`} onAnimationEnd={this.props.onAnimationEnd}>
 					{this.props.imgSrc &&
 						(this.props.imgLink ?
-							<Link to={this.props.imgLink}><img className="title-card-img" src={this.props.imgSrc} alt="err" /></Link>
+							<Link
+								to={this.props.imgLink}
+								onClick={(evt) => {
+									evt.preventDefault();
+									window.location.replace(this.props.imgLink);
+								}}>
+								<img className="title-card-img" src={this.props.imgSrc} alt="idk" />
+							</Link>
 							:
-							<img className="title-card-img" src={this.props.imgSrc} alt="err" />)
+							<img className="title-card-img" src={this.props.imgSrc} alt="idk" />)
 					}
 					<div className="title-card-content">
 						{!this.props.isSmallView && (this.props.contentTitle ?
