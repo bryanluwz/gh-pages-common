@@ -28,9 +28,21 @@ class NewsPage extends Component {
 
 		// Init selected news 
 		if (isSmallView) {
-			const selectedNews = (this.props.router.params.newsKey?.toLowerCase() !== "news") ?
-				this.props.router.params.newsKey?.replace(":", '') :
-				Object.keys(this.state.sortedDictionary)[0];
+			const selectedNews =
+				(this.props.router.params.newsKey && this.props.router.params.newsKey?.toLowerCase() !== "news") ?
+					this.props.router.params.newsKey?.replace(":", '') :
+					null;
+
+			this.setState({
+				selectedNews: selectedNews,
+				selectedNewsBuffer: selectedNews
+			});
+		}
+		else {
+			const selectedNews =
+				(this.props.router.params.newsKey && this.props.router.params.newsKey?.toLowerCase() !== "news") ?
+					this.props.router.params.newsKey?.replace(":", '') :
+					Object.keys(this.state.sortedDictionary)[0];
 
 			this.setState({
 				selectedNews: selectedNews,
