@@ -24,7 +24,7 @@ class NewsPage extends Component {
 
 	componentDidMount() {
 		// Init resize handler function
-		const isSmallView = this.handleResize(); // Call once here to set / unset small view
+		const isSmallView = !this.handleResize(); // Call once here to set / unset small view
 
 		// Init selected news 
 		if (isSmallView) {
