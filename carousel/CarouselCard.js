@@ -15,11 +15,11 @@ export class CarouselCard extends Component {
 								evt.preventDefault();
 								window.location.replace(this.props.link);
 							}}>
-							<img src={process.env.PUBLIC_URL + this.props.imgSrc} alt={this.props.imgAlt} />
+							<img src={this.props.imgSrc} alt={this.props.imgAlt} />
 						</Link>
 						:
 						<div className="carousel-card">
-							<img src={process.env.PUBLIC_URL + this.props.imgSrc} alt={this.props.imgAlt} />
+							<img src={this.props.imgSrc} alt={this.props.imgAlt} />
 						</div>
 				}
 			</Fragment>
