@@ -58,6 +58,15 @@ export default class AboutPage extends Component {
 						<span>NTU is one of the <b>best universities</b> in the world and you should definitely come and study here for a enjoyable experience, yeah totally</span>
 					</TextTitleCard>
 				</Segment>
+				<Segment
+					title='WORK??'
+				>
+					<TextTitleCard title="Please give me a job" backgroundColor={getNextBackgroundColor()}>
+						<span>I really need it</span>
+						<br />
+						<span>Anyways here's my <a target="_blank" href={"/other-assets/Resume.pdf"}><u>resume</u></a></span>
+					</TextTitleCard>
+				</Segment>
 			</Fragment>
 		);
 	}
