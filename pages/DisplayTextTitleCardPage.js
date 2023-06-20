@@ -14,6 +14,13 @@ export default class DisplayTextTitleCardPage extends Component {
 		this.pageDictionary = this.props.pageDictionary;
 	}
 
+	componentDidUpdate(prevProps, prevState) {
+		if (prevProps.pageDictionary !== this.props.pageDictionary) {
+			this.pageDictionary = this.props.pageDictionary;
+			this.forceUpdate();
+		}
+	}
+
 	render() {
 		var bgColorsIndex = 0;
 		const bgColors = this.bgColors;
