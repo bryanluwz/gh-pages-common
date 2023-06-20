@@ -1,8 +1,7 @@
 import { Component, Fragment } from "react";
 import { Segment } from "../segment";
 import { TextTitleCard } from "../titleCards";
-
-export default class AboutPage extends Component {
+export default class DisplayTextTitleCardPage extends Component {
 	constructor(props) {
 		super(props);
 		this.bgColors = [
@@ -36,7 +35,7 @@ export default class AboutPage extends Component {
 							>
 								{segment['title-card']?.map((titleCard, index) => {
 									return (
-										<TextTitleCard title={titleCard['title']} backgroundColor={getNextBackgroundColor()} htmlString={titleCard['html']}>
+										<TextTitleCard key={index} title={titleCard['title']} backgroundColor={getNextBackgroundColor()} htmlString={titleCard['html']}>
 											{titleCard['html']}
 										</TextTitleCard>);
 								})
@@ -46,6 +45,8 @@ export default class AboutPage extends Component {
 						);
 					})
 				}
+
+				{this.props.children}
 			</Fragment>
 		);
 	}

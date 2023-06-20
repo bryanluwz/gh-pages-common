@@ -12,5 +12,75 @@
         "default": {
             "imgSrc": "/images/shuba.png"
         }
-    }
+    },
+    "about-page": [
+        {
+            "segment-title": "ME",
+            "title-card": [
+                {
+                    "title": "Hello there",
+                    "html": "<span>Annyeong konnichiwa nihao im <b>bryan</b> from malaysia degozaimasuhamida!</span><br /><br /><span>I'm currently studying in Singapore's NTU Computer Engineering course!</span>"
+                }
+            ]
+        },
+        {
+            "segment-title": "heckin cats",
+            "title-card": [
+                {
+                    "title": "Did you know?",
+                    "html": "Catters haz five beans on front scritchers, but only four beans on back scritchers"
+                }
+            ]
+        },
+        {
+            "segment-title": "Uni Life",
+            "title-card": [
+                {
+                    "title": "NTU is NUTS",
+                    "html": "<span>the only thing i like about ntu are the cats (and also frens)</span><br/><br/><i>*cocks pistol*</i><br/><br/><span><b>LOL</b> I'm just kidding hahaha</span><br/><br/><span>NTU is one of the <b>best universities</b> in the world and you should definitely come and study here for a enjoyable experience, yeah totally</span>"
+                }
+            ]
+        },
+        {
+            "segment-title": "WORK??",
+            "title-card": [
+                {
+                    "title": "Please give me a job",
+                    "html": "<span>I really need it</span><br /><span>Anyways here's my <a target=\"_blank\" href=\"/other-assets/Resume.pdf\"><u>resume</u></a></span>"
+                }
+            ]
+        }
+    ],
+    "others-page": [
+        {
+            "segment-title": "arigatou",
+            "title-card": [
+                {
+                    "title": "Reference Images",
+                    "html": "Too many I'm too lazy to list them all"
+                },
+                {
+                    "title": "Pusheen",
+                    "html": "<span>Thanks to <u><Link to=\"https://pusheen.com\">pusheen.com</Link></u> for inspiration <i>(and also i used some of the images there as placeholder images >_<  )</i></span>"
+                },
+                {
+                    "title": "ChatGPT",
+                    "html": "<span>Thanks to <u><Link to=\"https://chat.openai.com\">chatgpt</Link></u> for being there <i>(and also not being there)</i> when i needed you the most</span>"
+                }
+            ]
+        },
+        {
+            "segment-title": "information",
+            "title-card": [
+                {
+                    "title": "Cookies",
+                    "html": "<span>Just like real-life cookies, our cookies does not last forever, and will only be extended every time you come and visit.</span><br /><br /><span>If you don't want the cookies anymore, please click on the <b><i>cookie diet</i></b> button below.</span>"
+                },
+                {
+                    "title": "Funsies",
+                    "html": "<span>Each game is hosted on a separate page, so don't worry when you are being redirected to another page.</span>"
+                }
+            ]
+        }
+    ]
 }

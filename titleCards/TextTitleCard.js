@@ -28,9 +28,13 @@ export class TextTitleCard extends Component {
 					<div className="image-text-title-card-text-title">
 						{this.props.title}
 					</div>
-					<div className="image-text-title-card-text-subtitle">
-						{this.props.children}
-					</div>
+					{
+						this.props.htmlString ?
+							<div className="image-text-title-card-text-subtitle" dangerouslySetInnerHTML={{ __html: this.props.htmlString }} /> :
+							<div className="image-text-title-card-text-subtitle" >
+								{this.props.children}
+							</div>
+					}
 				</div>
 			</div>
 		);
