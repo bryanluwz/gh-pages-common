@@ -61,11 +61,15 @@
                 },
                 {
                     "title": "Pusheen",
-                    "html": "<span>Thanks to <u><Link to=\"https://pusheen.com\">pusheen.com</Link></u> for inspiration <i>(and also i used some of the images there as placeholder images >_<  )</i></span>"
+                    "html": "<span>Thanks to <u><a href=\"https://pusheen.com\">pusheen.com</a></u> for inspiration <i>(and also i used some of the images there as placeholder images >_<  )</i></span>"
                 },
                 {
                     "title": "ChatGPT",
-                    "html": "<span>Thanks to <u><Link to=\"https://chat.openai.com\">chatgpt</Link></u> for being there <i>(and also not being there)</i> when i needed you the most</span>"
+                    "html": "<span>Thanks to <u><a href=\"https://chat.openai.com\">chatgpt</a></u> for being there <i>(and also not being there)</i> when i needed you the most</span>"
+                },
+                {
+                    "title": "multi.tech",
+                    "html": "<span>Thanks to <u><a href=\"https://multi.tech/\">multi.tech</a></u> for the GPT model API thingy</span>"
                 }
             ]
         },
