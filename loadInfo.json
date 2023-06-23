@@ -78,7 +78,7 @@
             "title-card": [
                 {
                     "title": "Cookies",
-                    "html": "<span>Just like real-life cookies, our cookies does not last forever, and will only be extended every time you come and visit.</span><br /><br /><span>If you don't want the cookies anymore, please click on the <b><i>cookie diet</i></b> button below.</span>"
+                    "html": "<span>Just like real-life cookies, our cookies does not last forever, and will only be extended every time you come and visit.</span><br /><br /><span><i>No cookies consent button?? That's probably just your browser blocking.</i></span><br /><br /><span>If you don't want the cookies anymore, please click on the <b><i>cookie diet</i></b> button below.</span>"
                 },
                 {
                     "title": "Funsies",

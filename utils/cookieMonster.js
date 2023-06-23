@@ -28,11 +28,14 @@ export function removeCookie(itenName) {
 	}
 }
 
+// Remove all cookies and also clear local storage
 export function removeAllCookies() {
-	if (isCookie())
+	if (isCookie()) {
 		Object.keys(cookies.getAll()).forEach(cookieName => {
 			cookies.remove(cookieName);
 		});
+		localStorage.clear();
+	}
 }
 
 export function getAllCookies() {
