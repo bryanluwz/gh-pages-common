@@ -17,19 +17,19 @@ export default class ContentDisplay extends Component {
 							this.props.backButtonRedirect ?
 								<i
 									className="content-header-side-button fa fa-angle-left"
-									ria-hidden="true"
+									aria-hidden="true"
 									onClick={() => { window.location.replace(this.props.backButtonRedirect); }}
 								/>
 								:
 								<i
 									className="content-header-side-button fa fa-angle-left"
-									ria-hidden="true"
+									aria-hidden="true"
 								/>
 					}
 					<div
 						className="content-header-title"
 						onClick={() => { this.props.handleHeaderTitleClick ? this.props.handleHeaderTitleClick() : console.log("this button does nothing"); }}>
-						{this.props.displayName}
+						{this.props.overrideTitle ? this.props.overrideTitle : this.props.displayName}
 					</div>
 					<i
 						className={`content-header-side-button fa ${this.props.faIcon ? this.props.faIcon : "fa-trash"}`}
