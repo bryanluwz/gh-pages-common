@@ -32,7 +32,7 @@ export default class DisplayRowPage extends Component {
 		return (
 			<Segment>
 				{Object.keys(sortedDictionary).length === 0 ?
-					<Error404Page customWarning="well this is awkward" />
+					<Error404Page imgSrc={this.props.error404ImgSrc} customWarning="well this is awkward" />
 					:
 					<Fragment>
 						<Searchbar

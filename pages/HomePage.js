@@ -92,7 +92,16 @@ export default class HomePage extends Component {
 					>
 						{
 							this.props.gameDictionary &&
-							Object.keys(this.props.gameDictionary)
+							Object.keys(
+								Object.fromEntries(
+									Object.entries(this.props.gameDictionary)
+										.sort(([, objA], [, objB]) => {
+											var objADate = new Date(objA.lastUpdatedDate);
+											var objBDate = new Date(objB.lastUpdatedDate);
+											return objBDate - objADate;
+										})
+								)
+							)
 								.slice(0, Math.min(Object.keys(this.props.gameDictionary).length, this.maxCardPerSegment))
 								.map((ModuleDisplayName, index) => {
 									var moduleInfo = this.props.gameDictionary[ModuleDisplayName];
@@ -112,19 +121,27 @@ export default class HomePage extends Component {
 					</NewsCardWrapper>
 				</Segment>
 
-				{/* Segment - uni */}
+				{/* Segment - coding */}
 				<Segment
-					title={"uni"}
+					title={"code"}
 				>
 					<NewsCardWrapper
-						viewMoreLink={"uni-stuff"}
+						viewMoreLink={"coding-stuff"}
 					>
 						{
-							this.props.uniDictionary &&
-							Object.keys(this.props.uniDictionary)
-								.slice(0, Math.min(Object.keys(this.props.uniDictionary).length, this.maxCardPerSegment))
+							this.props.codingDictionary &&
+							Object.keys(
+								Object.fromEntries(
+									Object.entries(this.props.codingDictionary)
+										.sort(([, objA], [, objB]) => {
+											var objADate = new Date(objA.lastUpdatedDate);
+											var objBDate = new Date(objB.lastUpdatedDate);
+											return objBDate - objADate;
+										}
+										)))
+								.slice(0, Math.min(Object.keys(this.props.codingDictionary).length, this.maxCardPerSegment))
 								.map((ModuleDisplayName, index) => {
-									var moduleInfo = this.props.uniDictionary[ModuleDisplayName];
+									var moduleInfo = this.props.codingDictionary[ModuleDisplayName];
 									var routeLink = moduleInfo.routeLink;
 									return (
 										<NewsCard
