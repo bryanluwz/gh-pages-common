@@ -40,7 +40,7 @@ export class CarouselCardWrapper extends Component {
 					emulateTouch
 					swipeable
 					stopOnHover={false}
-					interval={8000}
+					interval={3500}
 					transitionTime={500}
 					showThumbs={false}
 

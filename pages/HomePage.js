@@ -157,6 +157,44 @@ export default class HomePage extends Component {
 						}
 					</NewsCardWrapper>
 				</Segment>
+
+				{/* Segment - Extra stuff */}
+				<Segment
+					title={"Extras"}
+				>
+					<NewsCardWrapper
+						viewMoreLink={"extra-stuff"}
+					>
+						{
+							this.props.extrasDictionary &&
+							Object.keys(
+								Object.fromEntries(
+									Object.entries(this.props.extrasDictionary)
+										.sort(([, objA], [, objB]) => {
+											var objADate = new Date(objA.lastUpdatedDate);
+											var objBDate = new Date(objB.lastUpdatedDate);
+											return objBDate - objADate;
+										})
+								)
+							)
+								.slice(0, Math.min(Object.keys(this.props.extrasDictionary).length, this.maxCardPerSegment))
+								.map((ModuleDisplayName, index) => {
+									var moduleInfo = this.props.extrasDictionary[ModuleDisplayName];
+									var routeLink = moduleInfo.routeLink;
+									return (
+										<NewsCard
+											key={index}
+											link={routeLink}
+											imgSrc={moduleInfo.icon}
+											contentTitle={moduleInfo.displayName}
+											contentSubtitle={moduleInfo.subtitle}
+											contentDate={moduleInfo.lastUpdatedDate}
+										/>
+									);
+								})
+						}
+					</NewsCardWrapper>
+				</Segment>
 			</Fragment>
 		);
 	}
