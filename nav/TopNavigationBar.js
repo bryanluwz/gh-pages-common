@@ -27,6 +27,12 @@ export default class TopNavigationBar extends Component {
 						</button>
 					</Link>
 
+					<Link className="nav-button-container" to={"/extras-stuff"}>
+						<button className={`${this.props.pathname === '/extras-stuff' ? "nav-button-underline" : ""}`}>
+							Extras
+						</button>
+					</Link>
+
 					<Link className="nav-button-container" to={"/news"}>
 						<button className={`${this.props.pathname === '/news' ? "nav-button-underline" : ""}`}>
 							News
