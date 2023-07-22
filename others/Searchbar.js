@@ -27,15 +27,16 @@ export default class SearchBar extends Component {
 
 		var matchingKeys = [];
 
-		// Check for matching object keys
+		// Check for matching object keys, or the value of the key that matches the search query
 		matchingKeys = matchingKeys.concat(Object.keys(this.unarrangedDictionary).filter(
 			(key) => {
 				const isMatch = (
 					key.toLowerCase().includes(searchQuery.toLowerCase()) ||
-					(this.dictionary[key]?.displayName?.toLowerCase()?.includes(searchQuery.toLowerCase())) ||
-					(this.dictionary[key]?.contentTitle?.toLowerCase()?.includes(searchQuery.toLowerCase())) ||
-					(this.dictionary[key]?.subtitle?.toLowerCase()?.includes(searchQuery.toLowerCase())) ||
-					(this.dictionary[key]?.contentSubtitle?.toLowerCase()?.includes(searchQuery.toLowerCase()))
+					(Object.values(this.dictionary[key]))
+						.some((value) => {
+							if (typeof value !== typeof "string") return false;
+							return value.toLowerCase()?.includes(searchQuery.toLowerCase());
+						})
 				);
 				return isMatch;
 			}
@@ -51,7 +52,7 @@ export default class SearchBar extends Component {
 		const sorted = Object.fromEntries(
 			reorderedKeys.map((key) => [key, this.dictionary[key]])
 		);
-
+		console.log(sorted);
 		this.props.setSortedDictionary(sorted);
 	};
 
