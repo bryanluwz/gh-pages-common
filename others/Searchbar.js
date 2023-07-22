@@ -42,7 +42,6 @@ export default class SearchBar extends Component {
 			}
 		));
 
-
 		const nonMatchingKeys = Object.keys(this.dictionary).filter(
 			(key) => !matchingKeys.includes(key)
 		);
@@ -52,7 +51,7 @@ export default class SearchBar extends Component {
 		const sorted = Object.fromEntries(
 			reorderedKeys.map((key) => [key, this.dictionary[key]])
 		);
-		console.log(sorted);
+
 		this.props.setSortedDictionary(sorted);
 	};
 
