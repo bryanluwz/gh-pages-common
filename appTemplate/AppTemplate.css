@@ -119,6 +119,24 @@ p {
     text-align: center;
 }
 
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--lavender-pastel-5);
+}
+
+::-webkit-scrollbar-button {
+    display: none;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--lavender-pastel-3);
+    border-radius: 10px;
+}
+
 /* Transition */
 .fadeIn {
     animation: 0.3s fadeIn forwards;

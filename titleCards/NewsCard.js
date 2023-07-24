@@ -3,6 +3,7 @@ import { Component, Fragment, createRef } from "react";
 import "./NewsCards.css";
 import { Link } from "react-router-dom";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
+import Fade from 'react-reveal/Fade';
 
 export class NewsCard extends Component {
 	constructor(props) {
@@ -30,46 +31,54 @@ export class NewsCard extends Component {
 		);
 
 		return (
-			<Fragment>
-				{
-					this.props.link ?
-						<Link
-							ref={this.ref}
-							className={`news-card-container news-card-container-link ${this.props.isSelected ? "news-card-container-highlighted" : ""}`}
-							to={this.props.link}
-							onClick={
-								this.props.onClick ?
-									this.props.onClick :
-									(evt) => {
-										evt.preventDefault();
-										window.location.replace(this.props.link);
-									}}
-						>
-							{content}
-						</Link>
-						:
-						<div
-							ref={this.ref}
-							className={`news-card-container ${this.props.isSelected ? "news-card-container-highlighted" : ""}`}
-							onClick={this.props.onClick}
-						>
-							{content}
-						</div>
-				}
-			</Fragment>
+			this.props.link ?
+				<Link
+					ref={this.ref}
+					className={`news-card-container news-card-container-link ${this.props.isSelected ? "news-card-container-highlighted" : ""}`}
+					to={this.props.link}
+					style={this.props.style}
+					onClick={
+						this.props.onClick ?
+							this.props.onClick :
+							(evt) => {
+								evt.preventDefault();
+								window.location.replace(this.props.link);
+							}}
+				>
+					{content}
+				</Link>
+				:
+				<div
+					ref={this.ref}
+					className={`news-card-container ${this.props.isSelected ? "news-card-container-highlighted" : ""}`}
+					style={this.props.style}
+					onClick={this.props.onClick}
+				>
+					{content}
+				</div>
+
 		);
 	}
 }
 
 export class NewsCardWrapper extends Component {
 	render() {
+		const returnChildrenHtml =
+			this.props.children?.length > 0 ?
+				this.props.children.map((child, index) => {
+					return (
+						this.props.animation ?
+							<Fade key={index} {...this.props}>{child}</Fade> :
+							child
+					);
+				})
+				:
+				<div style={{ width: "100%", textAlign: "center", marginBottom: "20px" }}>There ought to be something here</div>;
+
+
 		return (
 			<div className="news-card-wrapper">
-				{this.props.children?.length > 0 ?
-					this.props.children
-					:
-					<div style={{ width: "100%", textAlign: "center", marginBottom: "20px" }}>There ought to be something here</div>
-				}
+				{returnChildrenHtml}
 
 				{
 					(this.props.viewMoreLink && this.props.children?.length > 0) &&

@@ -1,10 +1,11 @@
 import { Component } from "react";
+import Fade from 'react-reveal/Fade';
 
 import './TitleCards.css';
 
 export class ImageTextTitleCard extends Component {
 	render() {
-		return (
+		const returnHtml =
 			<div className="image-text-title-card-container">
 				<img className="image-text-title-card-img" src={process.env.PUBLIC_URL + this.props.imgSrc} alt="idk" />
 				<div className="image-text-title-card-text">
@@ -15,7 +16,10 @@ export class ImageTextTitleCard extends Component {
 						{this.props.children}
 					</div>
 				</div>
-			</div>
+			</div>;
+
+		return (
+			this.props.animation ? <Fade {...this.props}>{returnHtml}</Fade> : returnHtml
 		);
 	}
 }

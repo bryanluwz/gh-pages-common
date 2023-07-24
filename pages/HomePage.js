@@ -2,6 +2,7 @@ import { Component, Fragment } from "react";
 import '../carousel/Carousel.css';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Link } from "react-router-dom";
+import Fade from 'react-reveal/Fade';
 
 import { CarouselCard, CarouselCardWrapper } from "../carousel";
 import { Segment } from "../segment";
@@ -16,6 +17,7 @@ export default class HomePage extends Component {
 	render() {
 		const carouselDictionary = this.props.carouselDictionary;
 		const miscDictionary = this.props.miscDictionary;
+
 		return (
 			<Fragment>
 				{/* Carousel */}
@@ -45,6 +47,8 @@ export default class HomePage extends Component {
 					<ImageTextTitleCard
 						imgSrc={miscDictionary?.aboutSection.imgSrc}
 						title={"Oh, hey~~"}
+						animation={true}
+						left
 					>
 						<span>Didn't see you there!</span>
 						<br />
@@ -60,6 +64,8 @@ export default class HomePage extends Component {
 				>
 					<NewsCardWrapper
 						viewMoreLink={"news"}
+						animation={true}
+						left
 					>
 						{this.props.newsDictionary &&
 							Object.keys(this.props.newsDictionary)
@@ -89,6 +95,8 @@ export default class HomePage extends Component {
 				>
 					<NewsCardWrapper
 						viewMoreLink={"fun-stuff"}
+						animation={true}
+						left
 					>
 						{
 							this.props.gameDictionary &&
@@ -127,6 +135,8 @@ export default class HomePage extends Component {
 				>
 					<NewsCardWrapper
 						viewMoreLink={"coding-stuff"}
+						animation={true}
+						left
 					>
 						{
 							this.props.codingDictionary &&
@@ -164,6 +174,8 @@ export default class HomePage extends Component {
 				>
 					<NewsCardWrapper
 						viewMoreLink={"extra-stuff"}
+						animation={true}
+						left
 					>
 						{
 							this.props.extrasDictionary &&
