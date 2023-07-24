@@ -83,10 +83,18 @@ export class NewsCardWrapper extends Component {
 				{
 					(this.props.viewMoreLink && this.props.children?.length > 0) &&
 					<div className="title-card-button-wrapper">
-						<Link to={this.props.viewMoreLink}>
-							<button>View more</button>
-							<i className="fa" aria-hidden="true" >&#43;</i>
-						</Link>
+						{this.props.animation ?
+							<Fade {...this.props}>
+								<Link to={this.props.viewMoreLink}>
+									<button>View more</button>
+									<i className="fa" aria-hidden="true" >&#43;</i>
+								</Link>
+							</Fade> :
+							<Link to={this.props.viewMoreLink}>
+								<button>View more</button>
+								<i className="fa" aria-hidden="true" >&#43;</i>
+							</Link>
+						}
 					</div>
 				}
 			</div >
