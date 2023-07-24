@@ -11,6 +11,8 @@ class NewsPage extends Component {
 	constructor(props) {
 		super(props);
 
+		this.dictionary = this.props.dictionary;
+
 		this.state = {
 			sortedDictionary: { ...this.props.dictionary },
 			selectedNews: null,
@@ -117,8 +119,12 @@ class NewsPage extends Component {
 			<Segment segmentBodyStyle={{ width: "90%" }}>
 				<Searchbar
 					placeholder={"Search"}
-					dictionary={sortedDictionary}
+					sortedDictionary={sortedDictionary}
+					originalDictionary={this.dictionary}
 					setSortedDictionary={this.setSortedDictionary}
+					haveSortButton={true}
+					sortOptions={{ "A-Z": "A-Z", "Z-A": "Z-A", "Latest": "latest", "Oldest": "oldest" }}
+					sortOption={"A-Z"}
 				/>
 				<div className="news-page-container" id="news-page-container">
 					<div className={`news-page-headlines ${this.state.isSmallView ? "news-page-headlines-wide" : ""}`}>

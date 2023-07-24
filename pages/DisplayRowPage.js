@@ -42,7 +42,7 @@ export default class DisplayRowPage extends Component {
 							originalDictionary={this.props.dictionary}
 							setSortedDictionary={this.setSortedDictionary}
 							haveSortButton={true}
-							sortOptions={{ "A-Z": "A-Z", "Z-A": "Z-A" }}
+							sortOptions={{ "A-Z": "A-Z", "Z-A": "Z-A", "Latest": "latest", "Oldest": "oldest" }}
 							sortOption={"A-Z"}
 						/>
 						<NewsCardWrapper

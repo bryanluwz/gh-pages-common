@@ -35,6 +35,18 @@ export default class SearchBar extends Component {
 			keys.sort((a, b) => a.localeCompare(b));
 		} else if (this.state.sortOption === "Z-A") {
 			keys.sort((a, b) => b.localeCompare(a));
+		} else if (this.state.sortOption === "latest") {
+			keys.sort((a, b) => {
+				const aDate = new Date(this.dictionary[a].lastUpdatedDate);
+				const bDate = new Date(this.dictionary[b].lastUpdatedDate);
+				return bDate - aDate;
+			});
+		} else if (this.state.sortOption === "oldest") {
+			keys.sort((a, b) => {
+				const aDate = new Date(this.dictionary[a].lastUpdatedDate);
+				const bDate = new Date(this.dictionary[b].lastUpdatedDate);
+				return aDate - bDate;
+			});
 		}
 
 		const searchQuery = this.searchQuery;
