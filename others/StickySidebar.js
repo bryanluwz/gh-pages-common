@@ -24,7 +24,7 @@ export default class StickySidebar extends Component {
 	handleScroll = () => {
 		const newsPageContainerOffset = document.querySelector("#news-page-container").offsetTop;
 		const sidebar = this.sidebarRef.current;
-		const scrollPosition = window.pageYOffset;
+		const scrollPosition = window.scrollY;
 
 		if (scrollPosition >= newsPageContainerOffset || sidebar.style.top > newsPageContainerOffset) {
 			this.setState({ isSticky: true });
