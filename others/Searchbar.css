@@ -23,6 +23,8 @@
 
     margin: 0 0 0 10px;
 
+    flex-grow: 1;
+
     border: none;
     outline: none;
     background: transparent;
@@ -45,5 +47,19 @@
 }
 
 .searchbar-container i {
+    max-width: min-content;
     cursor: pointer;
+}
+
+.searchbar-container .ui-select {
+    width: max-content;
+}
+
+.searchbar-container > *:first-child,
+.searchbar-container > *:last-child {
+    flex-grow: 1;
+}
+
+.searchbar-container > div:nth-child(2) {
+    flex-grow: 2;
 }

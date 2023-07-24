@@ -1,0 +1,64 @@
+/* Copied from https://github.com/bryanluwz/utilities-pages/blob/main/src/main/Main.css*/
+/* Select and option thing */
+.ui-select {
+    display: flex;
+}
+
+.ui-select select {
+    width: max-content;
+
+    padding: 8px;
+    padding-right: 20px;
+
+    border: none;
+    border-radius: 10px;
+    background-color: white;
+
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    font: inherit;
+    color: inherit;
+
+    cursor: pointer;
+
+    user-select: none;
+    overflow: hidden;
+}
+
+.ui-select .ui-select-arrow {
+    position: relative;
+}
+
+.ui-select .ui-select-arrow > i {
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
+
+    color: inherit;
+    pointer-events: none;
+
+    transition: all 0.4s ease;
+}
+
+.ui-select select option {
+    padding: 5px;
+
+    font-size: 14px;
+    font: inherit;
+    color: inherit;
+}
+
+.ui-select option:checked {
+    background-color: var(--lavender-pastel-1);
+    color: #fff;
+}
+
+.ui-select option:hover {
+    /* Lol this doesnt work */
+    background-color: var(--lavender-pastel-3);
+    color: #fff;
+}

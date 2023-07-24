@@ -38,8 +38,12 @@ export default class DisplayRowPage extends Component {
 					<Fragment>
 						<Searchbar
 							placeholder={"Search"}
-							dictionary={sortedDictionary}
+							sortedDictionary={this.props.sortedDictionary}
+							originalDictionary={this.props.dictionary}
 							setSortedDictionary={this.setSortedDictionary}
+							haveSortButton={true}
+							sortOptions={{ "A-Z": "A-Z", "Z-A": "Z-A" }}
+							sortOption={"A-Z"}
 						/>
 						<NewsCardWrapper
 							{...this.props}
