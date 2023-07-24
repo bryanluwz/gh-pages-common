@@ -21,6 +21,7 @@
 
     font: inherit;
     color: inherit;
+    text-align: center;
 
     cursor: pointer;
 
@@ -45,11 +46,12 @@
 }
 
 .ui-select select option {
-    padding: 5px;
+    padding: 10px;
 
     font-size: 14px;
     font: inherit;
     color: inherit;
+    text-align: left;
 }
 
 .ui-select option:checked {

@@ -61,15 +61,15 @@
                 },
                 {
                     "title": "Pusheen",
-                    "html": "<span>Thanks to <u><a href=\"https://pusheen.com\">pusheen.com</a></u> for inspiration <i>(and also i used some of the images there as placeholder images >_<  )</i></span>"
+                    "html": "<span>Thanks to <u><a href=\"https://pusheen.com\" target=\"_blank\">pusheen.com</a></u> for inspiration <i>(and also i used some of the images there as placeholder images >_<  )</i></span>"
                 },
                 {
                     "title": "ChatGPT",
-                    "html": "<span>Thanks to <u><a href=\"https://chat.openai.com\">chatgpt</a></u> for being there <i>(and also not being there)</i> when i needed you the most</span>"
+                    "html": "<span>Thanks to <u><a href=\"https://chat.openai.com\" target=\"_blank\">chatgpt</a></u> for being there <i>(and also not being there)</i> when i needed you the most</span>"
                 },
                 {
                     "title": "multi.tech",
-                    "html": "<span>Thanks to <u><a href=\"https://multi.tech/\">multi.tech</a></u> for the GPT model API thingy</span>"
+                    "html": "<span>Thanks to <u><a href=\"https://multi.tech/\" target=\"_blank\">multi.tech</a></u> for the GPT model API thingy</span>"
                 }
             ]
         },
@@ -83,6 +83,10 @@
                 {
                     "title": "Funsies",
                     "html": "<span>Each game is hosted on a separate page, so don't worry when you are being redirected to another page.</span>"
+                },
+                {
+                    "title": "Sauce Code",
+                    "html": "<span>Wonder how this website is made? Here's the <u><a href=\"https://github.com/bryanluwz/bryanluwz.github.io\" target=\"_blank\">sauce</a></u></span>"
                 }
             ]
         }
