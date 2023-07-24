@@ -29,6 +29,7 @@ export default class DisplayRowPage extends Component {
 
 	render() {
 		const { sortedDictionary } = this.state;
+
 		return (
 			<Segment>
 				{Object.keys(sortedDictionary).length === 0 ?
@@ -40,7 +41,9 @@ export default class DisplayRowPage extends Component {
 							dictionary={sortedDictionary}
 							setSortedDictionary={this.setSortedDictionary}
 						/>
-						<NewsCardWrapper>
+						<NewsCardWrapper
+							{...this.props}
+						>
 							{
 								Object.keys(sortedDictionary)
 									.map((ModuleDisplayName, index) => {

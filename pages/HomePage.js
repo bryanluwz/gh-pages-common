@@ -2,7 +2,6 @@ import { Component, Fragment } from "react";
 import '../carousel/Carousel.css';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Link } from "react-router-dom";
-import Fade from 'react-reveal/Fade';
 
 import { CarouselCard, CarouselCardWrapper } from "../carousel";
 import { Segment } from "../segment";

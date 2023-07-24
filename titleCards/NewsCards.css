@@ -78,21 +78,24 @@
     align-items: center;
     justify-content: left;
 
-    border-top: 1px solid var(--lavender-pastel-1);
-
     transition: 0.2s ease;
 
     cursor: pointer;
+}
+
+/* The top border instead of using news-card-container, use the next immediate child of .news-card-wrapper */
+.news-card-wrapper > *:not(.title-card-button-wrapper) {
+    border-top: 1px solid var(--lavender-pastel-1);
+}
+
+.news-card-wrapper > *:first-of-type {
+    border-top: 0px solid var(--lavender-pastel-1);
 }
 
 .news-view-container {
     flex-direction: column;
 
     cursor: default;
-}
-
-.news-card-container:first-of-type {
-    border-top: 0px solid var(--lavender-pastel-1);
 }
 
 .news-card-container-link:hover {

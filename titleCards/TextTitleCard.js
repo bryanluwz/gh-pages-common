@@ -26,21 +26,23 @@ export class ImageTextTitleCard extends Component {
 
 export class TextTitleCard extends Component {
 	render() {
-		return (
-			<div className="image-text-title-card-container" style={{ backgroundColor: this.props.backgroundColor }}>
-				<div className="image-text-title-card-text text-title-card-content">
-					<div className="image-text-title-card-text-title">
-						{this.props.title}
-					</div>
-					{
-						this.props.htmlString ?
-							<div className="image-text-title-card-text-subtitle" dangerouslySetInnerHTML={{ __html: this.props.htmlString }} /> :
-							<div className="image-text-title-card-text-subtitle" >
-								{this.props.children}
-							</div>
-					}
+		const returnHtml = <div className="image-text-title-card-container" style={{ backgroundColor: this.props.backgroundColor }}>
+			<div className="image-text-title-card-text text-title-card-content">
+				<div className="image-text-title-card-text-title">
+					{this.props.title}
 				</div>
+				{
+					this.props.htmlString ?
+						<div className="image-text-title-card-text-subtitle" dangerouslySetInnerHTML={{ __html: this.props.htmlString }} /> :
+						<div className="image-text-title-card-text-subtitle" >
+							{this.props.children}
+						</div>
+				}
 			</div>
+		</div>;
+
+		return (
+			this.props.animation ? <Fade {...this.props}>{returnHtml}</Fade> : returnHtml
 		);
 	}
 }

@@ -42,7 +42,7 @@ export default class DisplayTextTitleCardPage extends Component {
 							>
 								{segment['title-card']?.map((titleCard, index) => {
 									return (
-										<TextTitleCard key={index} title={titleCard['title']} backgroundColor={getNextBackgroundColor()} htmlString={titleCard['html']}>
+										<TextTitleCard key={index} title={titleCard['title']} backgroundColor={getNextBackgroundColor()} htmlString={titleCard['html']} {...this.props}>
 											{titleCard['html']}
 										</TextTitleCard>);
 								})
