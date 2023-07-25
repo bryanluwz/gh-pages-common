@@ -43,13 +43,11 @@ export default class HomePage extends Component {
 				<Segment
 					title={"about"}
 					animation={true}
-					left
 				>
 					<ImageTextTitleCard
 						imgSrc={miscDictionary?.aboutSection.imgSrc}
 						title={"Oh, hey~~"}
 						animation={true}
-						left
 					>
 						<span>Didn't see you there!</span>
 						<br />
@@ -63,12 +61,10 @@ export default class HomePage extends Component {
 				<Segment
 					title={"News"}
 					animation={true}
-					left
 				>
 					<NewsCardWrapper
 						viewMoreLink={"news"}
 						animation={true}
-						left
 					>
 						{this.props.newsDictionary &&
 							Object.keys(this.props.newsDictionary)
@@ -96,12 +92,10 @@ export default class HomePage extends Component {
 				<Segment
 					title={"Funsies"}
 					animation={true}
-					left
 				>
 					<NewsCardWrapper
 						viewMoreLink={"fun-stuff"}
 						animation={true}
-						left
 					>
 						{
 							this.props.gameDictionary &&
@@ -138,11 +132,9 @@ export default class HomePage extends Component {
 				<Segment
 					title={"code"}
 					animation={true}
-					left
 				>
 					<NewsCardWrapper
 						viewMoreLink={"coding-stuff"}
-						animation={true}
 						left
 					>
 						{
@@ -179,12 +171,10 @@ export default class HomePage extends Component {
 				<Segment
 					title={"Extras"}
 					animation={true}
-					left
 				>
 					<NewsCardWrapper
 						viewMoreLink={"extra-stuff"}
 						animation={true}
-						left
 					>
 						{
 							this.props.extrasDictionary &&

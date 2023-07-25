@@ -49,7 +49,7 @@
 }
 
 /* Hide logo title if screen too small */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 500px) {
     .logo-img {
         height: 70%;
     }
