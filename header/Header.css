@@ -14,6 +14,8 @@
     overflow: hidden;
 
     transition: 0.2s ease;
+
+    position: relative;
 }
 
 /* For logo */
@@ -49,11 +51,25 @@
 /* Hide logo title if screen too small */
 @media screen and (max-width: 600px) {
     .logo-img {
+        height: 70%;
+    }
+
+    .logo-title {
+        font-size: var(--h4-font-size) !important;
+    }
+
+    .header-container {
+        height: 12vh;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .logo-img {
         height: 80%;
     }
 
     .logo-title {
-        font-size: var(--h2-font-size) !important;
+        font-size: var(--h1-font-size);
     }
 
     .header-container {
@@ -61,8 +77,9 @@
     }
 }
 
-@media screen and (max-width: 800px) {
-    .logo-title {
-        font-size: var(--h1-font-size);
-    }
+/* Hamburger Menu */
+.header-container > .hamburger-menu-button {
+    position: absolute;
+    left: 10px;
+    /* transform: translateY(50%); */
 }

@@ -7,10 +7,13 @@ export default class TopNavigationBar extends Component {
 	render() {
 		return (
 			<div className="nav-wrapper">
-				<div className="nav-container">
+				<div className="nav-container" >
 					{
 						typeof this.props.navs === "object" &&
 						Object.keys(this.props.navs).map((key, index) => {
+							if (this.props.navs[key].hideInNavBar) {
+								return;
+							}
 							let nav = this.props.navs[key];
 							return (
 								<Link className="nav-button-container" to={nav.link} key={index}>

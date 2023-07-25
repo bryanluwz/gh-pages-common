@@ -1,3 +1,4 @@
+/* For top navigation bar */
 .nav-wrapper {
     width: 100%;
 
@@ -68,4 +69,57 @@
     .nav-button-container button {
         font-size: var(--h5-font-size);
     }
+}
+
+/* For hamburger menu button */
+.hamburger-menu-button {
+    width: 50px;
+    height: 50px;
+
+    border: none;
+    outline: transparent;
+    background: transparent;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: var(--h2-font-size);
+    color: var(--lavender-pastel-font-1);
+    font-family: var(--title-font);
+    font-weight: bold;
+
+    cursor: default;
+
+    transition: 0.2s ease;
+
+    > * {
+        cursor: pointer;
+    }
+}
+
+/* For sidebar menu that appears after you press the hamburger menu button */
+.sidebar-menu {
+    position: fixed;
+    top: 0;
+    left: -300px; /* Position of sidebar menu when it is closed */
+
+    width: min-content;
+    height: 100vh;
+
+    padding: 20px;
+
+    background: var(--gray-pastel-1);
+    transition: all 0.4s ease;
+
+    z-index: 1000;
+
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: flex-start;
+}
+
+.sidebar-menu.active {
+    left: 0; /* Position of sidebar menu when it is open */
 }
