@@ -29,6 +29,7 @@ export default class Header extends Component {
 							navs={this.props.navs}
 							sidebarActive={this.state.sidebarActive}
 							setSidebarActive={(active) => { this.setState({ sidebarActive: active }); }}
+							title={"hemlo"}
 						/>
 					</Fragment>
 				}

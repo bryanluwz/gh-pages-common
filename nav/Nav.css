@@ -91,11 +91,16 @@
 
     cursor: default;
 
-    transition: 0.2s ease;
+    transition: all 0.4s ease;
+}
 
-    > * {
-        cursor: pointer;
-    }
+.hamburger-menu-button > i {
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+.hamburger-menu-button > i:hover {
+    color: var(--lavender-pastel-1);
 }
 
 /* For sidebar menu that appears after you press the hamburger menu button */
@@ -104,12 +109,9 @@
     top: 0;
     left: -300px; /* Position of sidebar menu when it is closed */
 
-    width: min-content;
+    width: min(60vw, 200px);
     height: 100vh;
 
-    padding: 20px;
-
-    background: var(--gray-pastel-1);
     transition: all 0.4s ease;
 
     z-index: 1000;
@@ -120,6 +122,69 @@
     justify-content: flex-start;
 }
 
+.sidebar-menu-links {
+    padding: 20px;
+
+    background: var(--gray-pastel-1);
+
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: flex-start;
+
+    flex-grow: 1;
+}
+
 .sidebar-menu.active {
     left: 0; /* Position of sidebar menu when it is open */
+}
+
+.sidebar-menu-header {
+    padding: 20px;
+
+    background-color: var(--lavender-pastel-4);
+
+    border: none;
+    border-bottom: 4px solid white;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sidebar-menu-header .sidebar-menu-title {
+    padding-left: 20px;
+
+    font-size: var(--h4-font-size);
+    color: var(--lavender-pastel-font-1);
+    font-family: var(--title-font);
+    font-weight: bold;
+}
+
+.sidebar-menu-header > button {
+    border: none;
+    outline: none;
+
+    font-size: var(--h4-font-size);
+    color: var(--lavender-pastel-font-1);
+    font-family: var(--title-font);
+    font-weight: bold;
+
+    background: transparent;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar-menu-header > button > i {
+    cursor: pointer;
+
+    transition: all 0.4s ease;
+}
+
+.sidebar-menu-header > button > i:hover {
+    color: var(--lavender-pastel-1);
 }

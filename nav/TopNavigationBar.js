@@ -1,4 +1,4 @@
-import { Component } from "react";
+import { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 
 import './Nav.css';
@@ -12,7 +12,7 @@ export default class TopNavigationBar extends Component {
 						typeof this.props.navs === "object" &&
 						Object.keys(this.props.navs).map((key, index) => {
 							if (this.props.navs[key].hideInNavBar) {
-								return;
+								return <Fragment />;
 							}
 							let nav = this.props.navs[key];
 							return (

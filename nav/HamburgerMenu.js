@@ -34,7 +34,6 @@ export class SidebarMenu extends Component {
 		if (prevProps.sidebarActive !== this.props.sidebarActive) {
 			if (this.props.sidebarActive) {
 				setTimeout(() => {
-
 					document.addEventListener('click', this.handleOutsideClick);
 				}, 100);
 			} else {
@@ -50,23 +49,37 @@ export class SidebarMenu extends Component {
 				className={`sidebar-menu ${this.props.sidebarActive ? "active" : ""}`}
 				ref={this.sidebarMenuRef}
 			>
-				{
-					typeof this.props.navs === "object" &&
-					Object.keys(this.props.navs).map((key, index) => {
-						let nav = this.props.navs[key];
-						return (
-							<Link className="nav-button-container"
-								to={nav.link}
-								key={index}
-								onClick={this.props.onLinkClick ? this.props.onLinkClick : () => { this.props.setSidebarActive(false); }}>
-								<button className={`${this.props.pathname === nav.link ? "nav-button-underline" : ""}`} >
-									{nav.name}
-								</button>
-							</Link>
-						);
+				<div className="sidebar-menu-header">
+					<div className="sidebar-menu-title">
+						{this.props.title}
+					</div>
+					<button
+						className="sidebar-menu-header-close-button"
+						onClick={() => { this.props.setSidebarActive(false); }}
+					>
+						<i className="fa fa-times" aria-hidden="true" />
+					</button>
+				</div>
+				<div className="sidebar-menu-links">
+					{
+						typeof this.props.navs === "object" &&
+						Object.keys(this.props.navs).map((key, index) => {
+							let nav = this.props.navs[key];
+							return (
+								<Link className="nav-button-container"
+									to={nav.link}
+									key={index}
+									onClick={this.props.onLinkClick ? this.props.onLinkClick : () => { this.props.setSidebarActive(false); }}>
+									<button className={`${this.props.pathname === nav.link ? "nav-button-underline" : ""}`} >
+										{nav.name}
+									</button>
+								</Link>
+							);
+						}
+						)
 					}
-					)
-				}
+				</div>
+
 			</div>
 		);
 	}
