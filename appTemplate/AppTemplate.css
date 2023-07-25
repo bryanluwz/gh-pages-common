@@ -137,6 +137,10 @@ p {
     border-radius: 10px;
 }
 
+::-webkit-scrollbar-thumb:hover {
+    background: var(--lavender-pastel-2);
+}
+
 /* Transition */
 .fadeIn {
     animation: 0.3s fadeIn forwards;

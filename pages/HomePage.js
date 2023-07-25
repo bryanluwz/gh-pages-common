@@ -42,6 +42,8 @@ export default class HomePage extends Component {
 				{/* Segment -- Hello there */}
 				<Segment
 					title={"about"}
+					animation={true}
+					left
 				>
 					<ImageTextTitleCard
 						imgSrc={miscDictionary?.aboutSection.imgSrc}
@@ -60,6 +62,8 @@ export default class HomePage extends Component {
 				{/* Segment - News */}
 				<Segment
 					title={"News"}
+					animation={true}
+					left
 				>
 					<NewsCardWrapper
 						viewMoreLink={"news"}
@@ -91,6 +95,8 @@ export default class HomePage extends Component {
 				{/* Segment - Fun stuff */}
 				<Segment
 					title={"Funsies"}
+					animation={true}
+					left
 				>
 					<NewsCardWrapper
 						viewMoreLink={"fun-stuff"}
@@ -131,6 +137,8 @@ export default class HomePage extends Component {
 				{/* Segment - coding */}
 				<Segment
 					title={"code"}
+					animation={true}
+					left
 				>
 					<NewsCardWrapper
 						viewMoreLink={"coding-stuff"}
@@ -170,6 +178,8 @@ export default class HomePage extends Component {
 				{/* Segment - Extra stuff */}
 				<Segment
 					title={"Extras"}
+					animation={true}
+					left
 				>
 					<NewsCardWrapper
 						viewMoreLink={"extra-stuff"}
