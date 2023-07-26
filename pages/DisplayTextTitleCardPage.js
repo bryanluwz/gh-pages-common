@@ -39,6 +39,7 @@ export default class DisplayTextTitleCardPage extends Component {
 							<Segment
 								key={index}
 								title={segment['segment-title']}
+								animation={this.props.animation}
 							>
 								{segment['title-card']?.map((titleCard, index) => {
 									return (
@@ -52,7 +53,6 @@ export default class DisplayTextTitleCardPage extends Component {
 						);
 					})
 				}
-
 				{this.props.children}
 			</Fragment>
 		);

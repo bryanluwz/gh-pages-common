@@ -20,7 +20,7 @@ export default class ProgressBar extends Component {
 
 	render() {
 		return (
-			<div className={`progress-bar-wrapper${this.props.wrapperClass ? this.props.wrapperClass : ""}`}>
+			<div className={`progress-bar-wrapper ${this.props.wrapperClass ? this.props.wrapperClass : ""}`}>
 				<div className={`progress-bar-container ${this.props.containerClass ? this.props.containerClass : ""}`}>
 					<div ref={this.barRef} className={`progress-bar ${this.props.barClass ? this.props.barClass : ""}`}></div>
 					{this.props.showNumber && <div className="progress-bar-number">{`${Math.round(this.state.progress * 100)} %`}</div>}
