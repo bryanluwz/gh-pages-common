@@ -1,4 +1,4 @@
-import { Component, Fragment } from "react";
+import { Component, Fragment, createRef } from "react";
 import { Link } from "react-router-dom";
 
 import './Header.css';
@@ -29,12 +29,15 @@ export default class Header extends Component {
 							navs={this.props.navs}
 							sidebarActive={this.state.sidebarActive}
 							setSidebarActive={(active) => { this.setState({ sidebarActive: active }); }}
-							title={"hemlo"}
+							title={"Menu"}
 						/>
 					</Fragment>
 				}
 				<Link className="logo-container" to={"/"}>
-					<img className="logo-img" src={process.env.PUBLIC_URL + this.props.imgSrc} alt="nil" />
+					<img
+						className="logo-img"
+						src={process.env.PUBLIC_URL + this.props.imgSrc}
+						alt="" />
 					<div className="logo-title">bryanluwz</div>
 				</Link>
 			</div>
