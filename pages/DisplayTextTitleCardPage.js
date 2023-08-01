@@ -1,6 +1,7 @@
 import { Component, Fragment } from "react";
 import { Segment } from "../segment";
 import { TextTitleCard } from "../titleCards";
+
 export default class DisplayTextTitleCardPage extends Component {
 	constructor(props) {
 		super(props);
@@ -48,7 +49,6 @@ export default class DisplayTextTitleCardPage extends Component {
 										</TextTitleCard>);
 								})
 								}
-
 							</Segment>
 						);
 					})

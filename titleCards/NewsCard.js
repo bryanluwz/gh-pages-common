@@ -36,6 +36,8 @@ export class NewsCard extends Component {
 					ref={this.ref}
 					className={`news-card-container news-card-container-link ${this.props.isSelected ? "news-card-container-highlighted" : ""}`}
 					to={this.props.link}
+					target="_blank"
+					rel="noreferrer"
 					style={this.props.style}
 					onClick={
 						this.props.onClick ?
@@ -111,6 +113,8 @@ export class NewsView extends Component {
 						(this.props.imgLink ?
 							<Link
 								to={this.props.imgLink}
+								target="_blank"
+								rel="noreferrer"
 								onClick={(evt) => {
 									evt.preventDefault();
 									window.location.replace(this.props.imgLink);
