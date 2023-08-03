@@ -1,0 +1,46 @@
+/* Title SVG Animation */
+.svg-wrapper {
+    display: flex;
+}
+
+.text-stroke {
+    fill: none;
+    stroke: var(--lavender-pastel-font-1);
+    stroke-width: 1;
+    animation: strokeAnimation 3s linear forwards;
+}
+
+.text-fill {
+    fill: transparent;
+    animation: fillAnimation 1s linear forwards;
+}
+
+.text-stroke-and-fill {
+    fill: transparent;
+    stroke: var(--lavender-pastel-font-1);
+    stroke-width: 1;
+    animation: strokeAnimation 2.6s linear forwards,
+        fillAnimation 0.4s ease 1.9s forwards;
+}
+
+@keyframes strokeAnimation {
+    0% {
+        stroke-dasharray: 0 127;
+        stroke-dashoffset: 127;
+    }
+
+    100% {
+        stroke-dasharray: 127 0;
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes fillAnimation {
+    0% {
+        fill: transparent;
+    }
+
+    100% {
+        fill: var(--lavender-pastel-font-1);
+    }
+}

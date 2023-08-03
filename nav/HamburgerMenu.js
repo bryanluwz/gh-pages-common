@@ -10,7 +10,8 @@ export class HamburgerMenuButton extends Component {
 				className="hamburger-menu-button"
 				onClick={this.props.handleHamburgerButtonClick}
 			>
-				<i className="fa fa-bars" aria-hidden="true" />
+				<i className={`fa fa-times ${this.props.isActive ? "fa-fixed active" : "inactive"}`} aria-hidden="true" />
+				<i className={`fa fa-bars ${this.props.isActive ? "inactive" : "active"}`} aria-hidden="true" />
 			</button>
 		);
 	}
@@ -50,15 +51,13 @@ export class SidebarMenu extends Component {
 				ref={this.sidebarMenuRef}
 			>
 				<div className="sidebar-menu-header">
-					<div className="sidebar-menu-title">
-						{this.props.title}
-					</div>
-					<button
+					<div className="sidebar-menu-title">Menu</div>
+					{/* <button
 						className="sidebar-menu-header-close-button"
 						onClick={() => { this.props.setSidebarActive(false); }}
 					>
 						<i className="fa fa-times" aria-hidden="true" />
-					</button>
+					</button> */}
 				</div>
 				<div className="sidebar-menu-links">
 					{

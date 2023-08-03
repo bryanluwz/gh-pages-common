@@ -92,6 +92,8 @@
     cursor: default;
 
     transition: all 0.4s ease;
+
+    position: relative;
 }
 
 .hamburger-menu-button > i {
@@ -100,22 +102,22 @@
 }
 
 .hamburger-menu-button > i:hover {
-    color: var(--lavender-pastel-1);
+    color: var(--lavender-pastel-font-1);
 }
 
 /* For sidebar menu that appears after you press the hamburger menu button */
 .sidebar-menu {
     position: fixed;
     top: 0;
-    left: -300px; /* Position of sidebar menu when it is closed */
+    left: -100vw; /* Position of sidebar menu when it is closed */
 
-    width: min(60vw, 200px);
+    width: 100vw;
     height: 100dvh;
 
     border: none;
     /* border-right: 2px solid var(--gray-pastel-0); */
 
-    transition: all 0.8s ease-in-out;
+    transition: all 0.4s ease-in-out;
 
     z-index: 1000;
 
@@ -132,29 +134,46 @@
 
     display: flex;
     flex-direction: column;
-    align-items: left;
+    align-items: center;
     justify-content: flex-start;
 
     flex-grow: 1;
+}
+
+.sidebar-menu-links button {
+    font-size: var(--h1-font-size);
+    font-family: var(--text-font);
 }
 
 .sidebar-menu.active {
     left: 0; /* Position of sidebar menu when it is open */
 }
 
+.sidebar-menu-header {
+    height: 4dvh;
+}
+
+@media screen and (min-width: 500px) {
+    .sidebar-menu-header {
+        height: 10dvh;
+    }
+}
+
 .sidebar-menu-header,
 .sidebar-menu-footer {
     padding: 20px;
 
+    background: var(--gray-pastel-1);
+
     background-color: var(--lavender-pastel-4);
 
     border: none;
-    border-bottom: 4px solid white;
+    border-bottom: 10px solid white;
 
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .sidebar-menu-footer {
@@ -164,11 +183,11 @@
 }
 
 .sidebar-menu-header .sidebar-menu-title {
-    padding-left: 20px;
+    /* padding-left: 20px; */
 
-    font-size: var(--h4-font-size);
+    font-size: var(--h1-font-size);
     color: var(--lavender-pastel-font-1);
-    font-family: var(--title-font);
+    font-family: var(--text-font);
     font-weight: bold;
 }
 
@@ -210,4 +229,23 @@
     background: transparent;
 
     font-weight: bold;
+}
+
+/* Hamburger menu button */
+.hamburger-menu-button > .fa {
+    position: absolute;
+}
+
+.fa-fixed {
+    position: fixed !important;
+}
+
+.fa.active {
+    transform: rotate(180deg);
+    opacity: 1;
+}
+
+.fa.inactive {
+    transform: rotate(0deg);
+    opacity: 0;
 }
