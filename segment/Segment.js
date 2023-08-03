@@ -20,7 +20,7 @@ export default class Segment extends Component {
 
 		return (
 			this.props.animation ?
-				<Fade {...this.props}>
+				<Fade bottom {...this.props}>
 					{returnHtml}
 				</Fade>
 				:

@@ -184,6 +184,10 @@
     transition: 0.4s ease;
 }
 
+.news-card-container .title-card-content a {
+    text-decoration: underline;
+}
+
 .title-card-content-title,
 .title-card-content-subtitle,
 .title-card-content-date {

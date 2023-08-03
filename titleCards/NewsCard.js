@@ -70,7 +70,7 @@ export class NewsCardWrapper extends Component {
 				this.props.children.map((child, index) => {
 					return (
 						this.props.animation ?
-							<Fade key={index} {...this.props}>{child}</Fade> :
+							<Fade bottom key={index} {...this.props}>{child}</Fade> :
 							child
 					);
 				})
@@ -86,7 +86,7 @@ export class NewsCardWrapper extends Component {
 					(this.props.viewMoreLink && this.props.children?.length > 0) &&
 					<div className="title-card-button-wrapper">
 						{this.props.animation ?
-							<Fade {...this.props}>
+							<Fade bottom {...this.props}>
 								<Link to={this.props.viewMoreLink}>
 									<button>View more</button>
 									<i className="fa" aria-hidden="true" >&#43;</i>
@@ -134,6 +134,20 @@ export class NewsView extends Component {
 						<div className="title-card-content-subtitle">
 							<ReactMarkdown children={this.props.contentBody} />
 						</div>
+						{
+							this.props.imgLink &&
+							<Fragment>
+								<br />
+								<Link
+									to={this.props.imgLink}
+									onClick={(evt) => {
+										evt.preventDefault();
+										window.location.replace(this.props.imgLink);
+									}}>
+									{this.props.imgLink.replace(/(^\w+:|^)\/\//, '')}
+								</Link>
+							</Fragment>
+						}
 					</div>
 				</div>
 			</Fragment>
