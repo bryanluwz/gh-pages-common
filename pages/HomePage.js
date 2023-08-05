@@ -173,7 +173,7 @@ export default class HomePage extends Component {
 					animation={true}
 				>
 					<NewsCardWrapper
-						viewMoreLink={"extra-stuff"}
+						viewMoreLink={"extras-stuff"}
 						animation={true}
 					>
 						{
