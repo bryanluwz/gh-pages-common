@@ -15,9 +15,13 @@ export default class TopNavigationBar extends Component {
 								return <Fragment />;
 							}
 							let nav = this.props.navs[key];
+
+							let regex = new RegExp(`(${nav.link}+)`, "g");
+							let isCurrentPath = regex.test(this.props.pathname);
+
 							return (
 								<Link className="nav-button-container" to={nav.link} key={index}>
-									<button className={`${this.props.pathname === nav.link ? "nav-button-underline" : ""}`}>
+									<button className={`${isCurrentPath ? "nav-button-underline" : ""}`}>
 										{nav.name}
 									</button>
 								</Link>

@@ -25,7 +25,6 @@ export default class Header extends Component {
 		}
 
 		if (prevProps.showHamburger && !this.props.showHamburger) {
-			console.log("hamburger to no hamburger");
 			this.setState({ sidebarActive: false });
 		}
 	}
