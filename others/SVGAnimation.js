@@ -36,7 +36,7 @@ export default class SVGAnimation extends Component {
 		return (
 			<div className="svg-wrapper" >
 				<svg className={this.props.svgClass} id="header-title">
-					<text x="0%" y="66%" textAnchor="left" alignment-baseline="middle" className="text-stroke-and-fill" id="header-title-text">{this.props.title ? this.props.title : "undefined"}</text>
+					<text x="50%" y="60%" textAnchor="middle" alignment-baseline="middle" className="text-stroke-and-fill" id="header-title-text">{this.props.title ? this.props.title : "undefined"}</text>
 				</svg>
 			</div>
 		);

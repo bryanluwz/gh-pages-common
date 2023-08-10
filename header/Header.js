@@ -49,6 +49,7 @@ export default class Header extends Component {
 						/>
 						<SidebarMenu
 							navs={this.props.navs}
+							pathname={this.props.pathname}
 							sidebarActive={this.state.sidebarActive}
 							setSidebarActive={(active) => { this.setState({ sidebarActive: active }); }}
 						/>
