@@ -126,19 +126,11 @@ export default class AboutPage extends Component {
 						animation={this.props.animation} >
 						<div>
 							<div>Hello I'm currently looking for internship experiences!</div>
-							<div>
-								Here's my <a
-									target="_blank"
-									href="https://nbviewer.org/github/bryanluwz/gh-pages-common-public/raw/main/other-assets/Resume.pdf"
-									rel="noreferrer"
-								>
-									<u>resume</u>
-								</a>!
-							</div>
+							<div>Here's my <a target="_blank" href="/other-assets/Resume.pdf" rel="noreferrer"><u>resume</u></a>!</div>
 						</div>
 					</TextTitleCard>
 				</Segment>
-			</Fragment >
+			</Fragment>
 		);
 	}
 }
